@@ -18,26 +18,28 @@ if (typeof window !== "undefined") {
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null);
   const bigHeadingRef = useRef<HTMLDivElement>(null);
-  const dot1Ref = useRef<HTMLDivElement>(null)
-  const dot2Ref = useRef<HTMLDivElement>(null)
-  const dot3Ref = useRef<HTMLDivElement>(null)
+  const dot1Ref = useRef<HTMLDivElement>(null);
+  const dot2Ref = useRef<HTMLDivElement>(null);
+  const dot3Ref = useRef<HTMLDivElement>(null);
+  const dot4Ref = useRef<HTMLDivElement>(null);
+  const dot5Ref = useRef<HTMLDivElement>(null);
+  const dot6Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const triggers: ScrollTrigger[] = [];
-  
-    
+
     const setupAnimations = () => {
-      if (!containerRef.current) return
+      if (!containerRef.current) return;
 
       // Kill existing ScrollTriggers to prevent duplicates on re-renders
-      triggers.length = 0 // Clear the array
+      triggers.length = 0; // Clear the array
 
       try {
         // Animation for the "CRAFTED" text (existing)
         gsap.set(bigHeadingRef.current, {
           x: "-10%",
-        })
+        });
         triggers.push(
           gsap.to(bigHeadingRef.current, {
             scrollTrigger: {
@@ -49,8 +51,8 @@ export default function Component() {
             x: "+20%",
             ease: "none",
             duration: 3,
-          }),
-        )
+          })
+        );
 
         // Animation for Dot 1 (bottom-left)
         if (dot1Ref.current) {
@@ -67,8 +69,8 @@ export default function Component() {
               scale: 1.5, // Scale up
               opacity: 0.5, // Fade slightly
               ease: "power1.out",
-            }),
-          )
+            })
+          );
         }
 
         // Animation for Dot 2 (top-right)
@@ -86,8 +88,8 @@ export default function Component() {
               scale: 0.8, // Scale down
               opacity: 0.6, // Fade slightly
               ease: "power1.out",
-            }),
-          )
+            })
+          );
         }
 
         // Animation for Dot 3 (top-left-ish)
@@ -104,49 +106,137 @@ export default function Component() {
               x: "20vw", // Move right
               rotation: 360, // Rotate
               ease: "power1.out",
-            }),
-          )
+            })
+          );
+        }
+
+        if (dot4Ref.current) {
+          triggers.push(
+            gsap.to(dot4Ref.current, {
+              scrollTrigger: {
+                trigger: containerRef.current,
+                scrub: 1,
+                start: "top bottom",
+                end: "bottom top",
+              },
+              x: "40vw",
+              y: "-50vh",
+              scale: 1.8,
+              opacity: 0.4,
+              ease: "power2.inOut",
+            })
+          );
+        }
+
+        if (dot5Ref.current) {
+          triggers.push(
+            gsap.to(dot5Ref.current, {
+              scrollTrigger: {
+                trigger: containerRef.current,
+                scrub: 1,
+                start: "top bottom",
+                end: "bottom top",
+              },
+              x: "-30vw",
+              y: "-70vh",
+              scale: 1.2,
+              rotation: 180,
+              opacity: 0.3,
+              ease: "circ.inOut",
+            })
+          );
+        }
+
+        if (dot6Ref.current) {
+          triggers.push(
+            gsap.to(dot6Ref.current, {
+              scrollTrigger: {
+                trigger: containerRef.current,
+                scrub: 1,
+                start: "top bottom",
+                end: "bottom top",
+              },
+              x: "10vw",
+              y: "60vh",
+              scale: 0.6,
+              opacity: 0.2,
+              ease: "power1.in",
+            })
+          );
         }
       } catch (error) {
-        console.error("Error setting up footer animations:", error)
+        console.error("Error setting up footer animations:", error);
       }
-    }
+    };
 
     // Use a timeout to ensure DOM is ready and refs are populated
-    const timer = setTimeout(setupAnimations, 100) // Reduced timeout for faster setup
+    const timer = setTimeout(setupAnimations, 100); // Reduced timeout for faster setup
 
     return () => {
-      clearTimeout(timer)
-      triggers.forEach((st) => st.kill()) // Kill all created ScrollTriggers
-    }
-
-  },[]);
+      clearTimeout(timer);
+      triggers.forEach((st) => st.kill()); // Kill all created ScrollTriggers
+    };
+  }, []);
 
   return (
     <footer className="bg-black text-white py-8 sm:py-12 md:py-16 sm:px-6 md:px-8 relative overflow-hidden">
-      <div ref={dot1Ref} className="w-[20vh] h-[20vh] bg-[#ff0000] absolute bottom-10 left-0 rounded-full z-[0]"></div>
-      <div ref={dot2Ref} className="w-[20vh] h-[20vh] bg-[#ff0000] absolute top-50 right-0 rounded-full z-[0]"></div>
-      <div ref={dot3Ref} className="w-[20vh] h-[20vh] bg-[#ff0000] absolute top-20 left-[30%] rounded-full z-[0]"></div>
+      <div
+        ref={dot1Ref}
+        className="w-[20vh] h-[20vh] bg-[#ff3d00] absolute bottom-10 left-0 rounded-full z-[0]"
+      ></div>
+      <div
+        ref={dot2Ref}
+        className="w-[20vh] h-[20vh] bg-[#7c4dff] absolute top-50 right-0 rounded-full z-[0]"
+      ></div>
+      <div
+        ref={dot3Ref}
+        className="w-[20vh] h-[20vh] bg-[#00e5ff] absolute top-20 left-[30%] rounded-full z-[0]"
+      ></div>
+      <div
+        ref={dot4Ref}
+        className="w-[15vh] h-[15vh] bg-[#76ff03] absolute top-[10%] left-[10%] rounded-full z-[0]"
+      ></div>
+      <div
+        ref={dot5Ref}
+        className="w-[18vh] h-[18vh] bg-[#ffea00] absolute bottom-[5%] right-[10%] rounded-full z-[0]"
+      ></div>
+      <div
+        ref={dot6Ref}
+        className="w-[12vh] h-[12vh] bg-[#ff4081] absolute top-[50%] left-[50%] rounded-full z-[0]"
+      ></div>
+
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium">
           <div>
-            <Link href="#" className="hover:text-gray-300 transition-colors z-10">
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors z-10"
+            >
               <FontAwesomeIcon icon={faGithub} /> GITHUB
             </Link>
           </div>
           <div>
-            <Link href="#" className="hover:text-gray-300 transition-colors z-10">
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors z-10"
+            >
               <FontAwesomeIcon icon={faInstagram} /> INSTAGRAM
             </Link>
           </div>
           <div>
-            <Link href="#" className="hover:text-gray-300 transition-colors z-10">
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors z-10"
+            >
               <FontAwesomeIcon icon={faLinkedin} /> LINKEDIN
             </Link>
           </div>
           <div>
-            <Link href="#" className="hover:text-gray-300 transition-colors z-10">
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors z-10"
+            >
               <FontAwesomeIcon icon={faEnvelope} /> EMAIL
             </Link>
           </div>
