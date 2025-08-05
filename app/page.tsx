@@ -1,13 +1,15 @@
-"use client";
-import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import Preloader from "@/components/preloader";
-import "locomotive-scroll/dist/locomotive-scroll.css";
-import About from "@/components/about-section";
-import Footer from "@/components/footer";
-import Projects from "@/components/project-section";
-import HeroSection from "@/components/hero-section";
-import Highlights from "@/components/highlights";
+"use client"
+
+import { useEffect, useState } from "react"
+import { AnimatePresence } from "framer-motion"
+import Preloader from "@/components/preloader"
+import "locomotive-scroll/dist/locomotive-scroll.css"
+import About from "@/components/about-section"
+import Footer from "@/components/footer"
+import Projects from "@/components/project-section"
+import HeroSection from "@/components/hero-section"
+import Highlights from "@/components/highlights"
+import Skills from "@/components/Skills"
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,12 +68,13 @@ export default function Page() {
             <Projects />
             <Highlights />
             <div
-              style={{ height: `${scrollSectionBelowHeight}px` }}
-              className="bg-gray-900 flex items-center justify-center text-white text-4xl w-full"
-            >
-              <h2>Scroll down to see the footer!</h2>
-            </div>
-            <Footer />
+                style={{ height: `${scrollSectionBelowHeight}px` }}
+                className="bg-gray-900 flex items-center justify-center text-white text-4xl w-full"
+              >
+                <h2>Scroll down to see the footer!</h2>
+              </div>
+            <Skills/>
+            <Footer /> 
           </section>
         </div>
       )}
