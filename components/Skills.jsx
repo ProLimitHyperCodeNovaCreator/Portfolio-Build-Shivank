@@ -158,14 +158,13 @@ const Skills = () => {
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider relative"
-          style={{ fontFamily: "'Bespoke Stencil', sans-serif" }}
         >
           Technologies
           <motion.div
             initial={{ scaleX: 0 }}
             animate={titleInView ? { scaleX: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
-            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-pink-500 to-purple-500 w-20 sm:w-24 md:w-32"
+            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-[#ff0000] w-20 sm:w-24 md:w-32"
           />
         </motion.h2>
       </motion.div>
@@ -347,7 +346,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Floating particles animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
@@ -362,12 +360,12 @@ const Skills = () => {
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 4,
+              duration: Math.random() * 3 + 7,
               repeat: Infinity,
               delay: Math.random() * 2,
               ease: "linear"
             }}
-            className="absolute w-2 h-2 bg-red-400 rounded-full"
+            className="absolute w-2 h-2 bg-gradient-to-br from-red-500 to-purple-500/20 rounded-full"
           />
         ))}
       </div>
