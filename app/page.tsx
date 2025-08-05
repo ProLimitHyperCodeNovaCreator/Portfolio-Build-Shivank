@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import Preloader from "@/components/preloader"
@@ -43,7 +44,7 @@ export default function Page() {
               >
                 <h2>Scroll down to see the footer!</h2>
               </div>
-              <Skills/>
+            <Skills/>
             <Footer /> 
           </section>
         </div>
