@@ -2,6 +2,25 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 import PixelCard from "./PixelCard/PixelCard";
 
+// Logo mapping for skills (corrected folder name)
+const skillLogos = {
+  "C++": "/shivank_icons/c++.svg",
+  "Python": "/shivank_icons/python.svg",
+  "Bash": "/shivank_icons/bash.svg",
+  "ROS": "/shivank_icons/Robot Operating System (ROS).svg",
+  "Gazebo": "/shivank_icons/Gazebo.svg",
+  "QGroundControl": "/shivank_icons/qgc.png",
+  "MAVLink": "/shivank_icons/mavlink.png",
+  "Qt Creator": "/shivank_icons/Qt_logo_2016.svg.png",
+  "PX4 Autopilot": "/shivank_icons/px4.png",
+  "RTAB-Map": "/shivank_icons/RTAB-Map.png",
+  "SLAM": "/shivank_icons/slam.png",
+  "Microsoft Azure": "/shivank_icons/Microsoft_Azure.svg",
+  "Postman": "/shivank_icons/postman.svg",
+  "I2C": "/shivank_icons/I²C_bus_logo.svg",
+  "u-center": "/shivank_icons/U-blox_logo.svg",
+};
+
 const skillsData = [
   {
     title: "Programming Languages",
@@ -197,10 +216,10 @@ const Skills = () => {
                     className="flex-1 flex items-center  w-full"
                   >
                     <motion.div
-                      className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed text-left"
+                      className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed w-full space-y-3"
                     >
                       {skill.items.map((item, index) => (
-                        <motion.span
+                        <motion.div
                           key={index}
                           custom={index}
                           variants={itemVariants}
@@ -209,10 +228,27 @@ const Skills = () => {
                             scale: 1.05,
                             transition: { duration: 0.2 }
                           }}
-                          className="flex flex-col gap-10 mx-1 my-1 px-2 py-1 transition-colors duration-200"
+                          className="flex items-center gap-3 mx-1 my-1 px-2 py-2 transition-colors duration-200 hover:bg-white/5 rounded-lg"
                         >
-                          {item}
-                        </motion.span>
+                          {/* Logo on the left */}
+                          {skillLogos[item] ? (
+                            <img
+                              src={skillLogos[item]}
+                              alt={item + ' logo'}
+                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain flex-shrink-0"
+                              style={{ background: 'white', borderRadius: '0.25rem' }}
+                              onError={e => { e.target.style.display = 'none'; }}
+                            />
+                          ) : (
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex-shrink-0 flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">
+                                {item.charAt(0).toUpperCase()}
+                              </span>
+                            </div>
+                          )}
+                          {/* Text */}
+                          <span className="flex-1 text-left">{item}</span>
+                        </motion.div>
                       ))}
                     </motion.div>
                   </motion.div>
