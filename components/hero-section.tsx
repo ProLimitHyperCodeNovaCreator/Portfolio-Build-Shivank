@@ -24,7 +24,7 @@ export default function HeroSection() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h2 className="text-sm font-light tracking-[0.3em] text-white/90">THE DESIGNER</h2>
+            <h2 className="text-xl font-light tracking-[0.3em] text-white/90">HELLO, I&apos;M</h2>
           </div>
         </div>
 
@@ -32,53 +32,38 @@ export default function HeroSection() {
         <div className="flex-1 flex items-center justify-center min-h-0">
           <div className="text-center w-full flex justify-center">
             <h1
-              className={`text-[28vw] sm:text-[26vw] md:text-[24vw] lg:text-[22vw] xl:text-[20vw] 2xl:text-[18vw] font-black leading-none text-red-500 transform transition-all duration-1200 ease-out whitespace-nowrap ${
-                isLoaded ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
+              className={`font-black leading-none text-red-500 transform transition-all duration-1200 ease-out whitespace-nowrap ${
+                isLoaded
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-16 opacity-0"
               }`}
               style={{
                 transitionDelay: "400ms",
                 fontFamily: "system-ui, -apple-system, sans-serif",
                 letterSpacing: "-0.08em",
-                height: "60vh",
+                height: "40vh",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "clamp(9rem, 28vw, 36rem)",
+                fontSize: "clamp(10rem, 22vw, 28rem)",
                 width: "100%",
               }}
             >
-              ADITYA
+              SHIVANK
             </h1>
+
           </div>
         </div>
 
         {/* Text Labels */}
-        <div className="flex justify-between items-center mb-8">
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
-            style={{ transitionDelay: "800ms" }}
-          >
-            <span className="text-sm font-light tracking-[0.2em] text-white/90">FIGMA</span>
-          </div>
-
-          <div
-            className={`transform transition-all duration-1000 ease-out ${
-              isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
-            style={{ transitionDelay: "900ms" }}
-          >
-            <span className="text-sm font-light tracking-[0.2em] text-white/90">PHOTOGRAPHY</span>
-          </div>
-
+        <div className="flex justify-center items-center mb-8">
           <div
             className={`transform transition-all duration-1000 ease-out ${
               isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "1000ms" }}
           >
-            <span className="text-sm font-light tracking-[0.2em] text-white/90">2002</span>
+            <span className="text-xl font-light tracking-[0.2em] text-white/90">ROBOTICS & SIMULATION ENGINEER</span>
           </div>
         </div>
 

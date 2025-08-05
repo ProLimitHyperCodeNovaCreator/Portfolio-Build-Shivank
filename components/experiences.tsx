@@ -9,14 +9,24 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-
 const projects = [
-  { name: "PROJECT ONE", href: "/projects/project-one", image: "/Pimg1.jpg" },
-  { name: "PROJECT TWO", href: "/projects/project-two", image: "/Pimg2.jpg" },
   {
-    name: "PROJECT THREE",
+    name: "TECHEAGLE",
     href: "/projects/project-three",
-    image: "/Pimg3.jpg",
+    image: "/Exp3.jpeg",
+    description: "Developed GPS free drone navigation using visual SLAM, OpenVINS, and real hardware integration. Covered simulation to deployment, focusing on sensor fusion and autonomous flight systems.",
+  },
+  {
+    name: "Indian Robotics Solution",
+    href: "/projects/project-two",
+    image: "/Exp2.jpeg",
+    description: "Secured drone GPS via UART/CAN protocol work and firmware tweaks. Customized QGroundControl, enhancing drone communication and embedded security.",
+  },
+  {
+    name: "Cloudologix",
+    href: "/projects/project-one",
+    image: "/Exp1.png",
+    description: "Built Cloudoberry to unify Azure services like VMs, Kubernetes, SQL, App Services into one dashboard. Enabled cost analysis, idle shutdown, and efficient cloud monitoring with automation focus.",
   },
 ];
 
@@ -26,6 +36,7 @@ function Page() {
   const overlayRef = useRef(null);
   const containerRef = useRef(null);
   const [imageHover, setImageHover] = React.useState("");
+  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
   useEffect(() => {
     if (
@@ -84,7 +95,7 @@ function Page() {
       <div className="flex flex-col justify-center items-center z-10">
         <div className="h-auto w-auto relative flex flex-col justify-center items-center overflow-hidden">
           <h1 className="text-[#FFFFFF] text-[5rem] tracking-wide font-light">
-            SHOWCASE
+            EXPERIENCES
           </h1>
           <div
             ref={projectHeadingRef}
@@ -106,7 +117,7 @@ function Page() {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={imageHover || "default"}
-                  src={imageHover || "/img2.png"}
+                  src={imageHover || "/img2.jpeg"}
                   alt="Project Preview"
                   initial={{ opacity: 0, scale: 1.02 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -129,18 +140,35 @@ function Page() {
                 className="group w-full text-right px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-600 border border-b border-white border-[1px] last:border-none"
                 onMouseEnter={() => {
                   setImageHover(project.image);
+                  setHoveredIndex(idx);
                 }}
                 onMouseLeave={() => {
                   setImageHover("");
+                  setHoveredIndex(null);
                 }}
               >
-                <div className="inline-flex items-center justify-end gap-4 text-white text-[5rem] font-light tracking-wide">
-                  <span className="transition-all duration-300 group-hover:translate-x-[-0.5rem]">
-                    {project.name}
-                  </span>
-                  <span className="text-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    ←
-                  </span>
+                <div className="text-right text-white font-light tracking-wide">
+                  <div className="text-right text-white text-[4rem] font-light tracking-wide relative min-h-[7rem] overflow-hidden">
+
+                    <span
+                      className={`block transition-all duration-300 ${
+                        hoveredIndex === idx
+                          ? "opacity-0 translate-y-[-100%]"
+                          : "opacity-100 translate-y-0"
+                      }`}
+                    >
+                      {project.name}
+                    </span>
+                    <span
+                      className={`absolute top-0 right-0 w-full text-white text-[1.5rem] font-light tracking-wide transition-all duration-300 ${
+                        hoveredIndex === idx
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-[100%]"
+                      }`}
+                    >
+                      {project.description}
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>

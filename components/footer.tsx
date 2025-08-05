@@ -63,7 +63,7 @@ export default function Component() {
                 end: "bottom top", // End when footer leaves viewport at top
               },
               y: "-80vh", // Move up
-              x: "20vw", // Move right
+              x: "40vw", // Move right
               scale: 1.5, // Scale up
               opacity: 0.5, // Fade slightly
               ease: "power1.out",
@@ -164,10 +164,10 @@ export default function Component() {
 
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium">
+        <div className="flex justify-around gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium">
           <div>
             <Link
-              href="#"
+              href="https://github.com/avianbob"
               className="hover:text-gray-300 transition-colors z-10"
             >
               <FontAwesomeIcon icon={faGithub} /> GITHUB
@@ -175,15 +175,7 @@ export default function Component() {
           </div>
           <div>
             <Link
-              href="#"
-              className="hover:text-gray-300 transition-colors z-10"
-            >
-              <FontAwesomeIcon icon={faInstagram} /> INSTAGRAM
-            </Link>
-          </div>
-          <div>
-            <Link
-              href="#"
+              href="https://www.linkedin.com/in/shivankgoyal23"
               className="hover:text-gray-300 transition-colors z-10"
             >
               <FontAwesomeIcon icon={faLinkedin} /> LINKEDIN
@@ -191,7 +183,7 @@ export default function Component() {
           </div>
           <div>
             <Link
-              href="#"
+              href="mailto:shivank.imp@gmail.com"
               className="hover:text-gray-300 transition-colors z-10"
             >
               <FontAwesomeIcon icon={faEnvelope} /> EMAIL
@@ -203,16 +195,16 @@ export default function Component() {
         <div ref={containerRef} className="text-center mb-8 sm:mb-12 md:mb-16">
           <h1
             ref={bigHeadingRef}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[14rem] 2xl:text-[18rem] z-10 font-black tracking-tighter leading-none"
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[17.5rem] z-10 font-black tracking-tighter leading-none"
           >
-            THE END.
+            BUILD ON
           </h1>
         </div>
 
         {/* Bottom navigation links */}
         <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium">
           <div className="hover:text-gray-300 transition-colors z-10">
-            BASED IN AGRA, UTTAR PRADESH
+            MADE WITH ❤ BY <span><a href="www.linkedin.com/in/adityaag2005" target="_blank" className="underline cursor-pointer">ADITYA AGARWAL</a></span>
           </div>
           <div className="hover:text-gray-300 transition-colors z-10">
             © All Rights Reserved

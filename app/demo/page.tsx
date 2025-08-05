@@ -7,9 +7,9 @@ import "locomotive-scroll/dist/locomotive-scroll.css"
 import About from "@/components/about-section"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Footer from "@/components/footer"
-import Projects from "@/components/project-section"
+import Projects from "@/components/experiences"
 import HeroSection from "@/components/hero-section"
-import Highlights from "@/components/highlights"
+import Highlights from "@/components/projects"
 
 gsap.registerPlugin(ScrollTrigger)
 

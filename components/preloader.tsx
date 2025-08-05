@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { opacity, slideUp } from "@/utils/preloader-animations"
 
-const words = ["CODE", "MEETS", "CREATIVITY", "HERE"]
+const words = ["AUTONOMY", "IN", "EVERY", "LINE"]
 
 export default function Preloader() {
   const [index, setIndex] = useState(0)

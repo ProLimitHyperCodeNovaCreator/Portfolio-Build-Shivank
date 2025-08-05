@@ -27,7 +27,7 @@ const sectionData = {
   layout: "default",
   title: "About me",
   content:
-    "Full-stack by title, backend by passion. I'm all about building scalable systems, automating the boring stuff, and solving real problems — not just polishing pixels. Frontend has its place, but let’s be honest: the backend is where the magic happens. I turn caffeine and curiosity into efficient code that saves time (especially mine). Got a project that needs brains, logic, and a bit of lazy genius? Let’s talk.",
+    "I'm an Robotics & Simulations Engineer with a passion for crafting smart robotic systems. My expertise includes PX4 firmware, ROS based navigation, and control logic for simulated and real world environments. From simulating motor faults to supporting GNSS denied applications and multi robot coordination, I tackle tough robotics problems with clean code and system level design. I excel where autonomy meets reliability and innovation engineering solutions that render robots intelligent, safe, and deployable in the real world.",
   image: "/myImg.jpeg",
 };
 
@@ -139,7 +139,7 @@ function About() {
         });
 
         gsap.to(lineRef.current, {
-          width: "40vw",
+          width: "60vw",
           ease: "power3.inOut",
           duration: 0.6,
           scrollTrigger: {
@@ -167,8 +167,8 @@ function About() {
     <div className="flex flex-col min-h-screen justify-around items-center py-10">
       <div className="flex flex-col justify-center items-center">
         <div className="h-auto w-auto relative flex flex-col justify-center items-center overflow-hidden">
-          <h1 className="text-[#FFFFFF] text-[5rem] tracking-tight">
-            FROM DREAM TO REALITY
+          <h1 className="text-[#FFFFFF] text-[4rem] tracking-wide font-light">
+            FROM MECHANISMS TO MACHINERY
           </h1>
           <div
             ref={aboutHeadingRef}
@@ -177,7 +177,7 @@ function About() {
         </div>
         <div
           ref={lineRef}
-          className="w-[40vw] h-[0.5rem] bg-[#ff0000] my-6"
+          className="w-[60vw] h-[0.5rem] bg-[#ff0000] my-6"
         ></div>
       </div>
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
