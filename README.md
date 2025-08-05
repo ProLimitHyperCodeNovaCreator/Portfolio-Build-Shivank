@@ -2,7 +2,7 @@
 
 A modern, interactive, and responsive developer portfolio crafted to showcase Shivank's skills, projects, and personality — with a pixel-perfect design and smooth animations to leave a lasting impression.
 
-> ⚡ Built with React, Next.js, Tailwind CSS, Framer Motion, and GSAP for fluid, real-time interactions.
+> ⚡ Built with Next.js, Tailwind CSS, Framer Motion, and GSAP for fluid, real-time interactions.
 
 ---
 
@@ -13,15 +13,14 @@ Shivank's Portfolio is more than just a digital resume — it's a dynamic experi
 Key features:
 - ✨ Animated Hero and About sections with scroll-based transitions
 - 💥 Interactive Skills section with pixel burst hover effects
-- 🎯 Projects, Contact, and Socials — cleanly organized and responsive
+- 🎯 Projects and Socials — cleanly organized and responsive
 - ⚙️ Fully optimized for all screen sizes and devices
-- 🌙 Dark mode ready (optional)
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Frontend:** React.js, Next.js
+- **Frontend:** Next.js
 - **Styling:** Tailwind CSS, Custom CSS
 - **Animation:** Framer Motion, GSAP
 - **Icons & Assets:** Lucide, FontAwesome, Custom SVGs
