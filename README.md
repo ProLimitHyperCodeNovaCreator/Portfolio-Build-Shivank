@@ -29,7 +29,7 @@ Key features:
 
 ## 🤝 My Contribution
 
-This portfolio was initially started by [Shivank](https://github.com/shivank), and I contributed as a freelance collaborator to enhance and upgrade the experience:
+This portfolio was initially started by [Aditya](https://github.com/ProLimitHyperCodeNovaCreator), and I contributed as a freelance collaborator to enhance and upgrade the experience:
 
 - 🧠 Redesigned and restructured the **Skills section**  
   - Developed a **pixel card component** with an **on-hover pixel spread animation**
