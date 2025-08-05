@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import Preloader from "@/components/preloader"
@@ -8,6 +9,7 @@ import Footer from "@/components/footer"
 import Projects from "@/components/project-section"
 import HeroSection from "@/components/hero-section"
 import Highlights from "@/components/highlights"
+import Skills from "@/components/Skills"
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
@@ -42,6 +44,7 @@ export default function Page() {
               >
                 <h2>Scroll down to see the footer!</h2>
               </div>
+            <Skills/>
             <Footer /> 
           </section>
         </div>
