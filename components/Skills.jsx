@@ -19,6 +19,8 @@ const skillLogos = {
   "Postman": "/shivank_icons/postman.svg",
   "I2C": "/shivank_icons/I²C_bus_logo.svg",
   "u-center": "/shivank_icons/U-blox_logo.svg",
+ "Docker": "/shivank_icons/docker.svg",
+  "Git": "/shivank_icons/git.svg",
 };
 
 const skillsData = [
@@ -46,10 +48,11 @@ const skillsData = [
     ],
   },
   {
-    title: "Cloud & Integration",
+    title: "DevOps and Tools",
     items: [
       "Microsoft Azure",
-      "REST API",
+      "Docker",
+      "Git",
       "Postman",
     ],
   },
@@ -163,101 +166,182 @@ const Skills = () => {
         </motion.h2>
       </motion.div>
 
-      {/* Skills Grid */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-items-center"
 
-      >
-        {skillsData.map((skill, cardIndex) => (
-          <motion.div
-            key={skill.title}
-            variants={cardVariants}
-            whileHover="hover"
-            className="w-full max-w-lg"
-          >
+      {/* Skills Flex Layout */}
+      <div className="flex flex-col gap-8 w-full items-center">
+        {/* First row: 3 cards, centered */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 w-full">
+          {skillsData.slice(0, 3).map((skill, cardIndex) => (
             <motion.div
-              variants={cardHoverVariants}
-              className="w-full h-full"
+              key={skill.title}
+              variants={cardVariants}
+              whileHover="hover"
+              className="w-full max-w-lg"
             >
-              <PixelCard
-                variant="pink"
-                className="w-full h-[620px] sm:h-[440px] p-4 sm:p-6 relative overflow-hidden"
+              <motion.div
+                variants={cardHoverVariants}
+                className="w-full h-full"
               >
-                {/* Background gradient animation */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.1 }}
-                  transition={{ delay: cardIndex * 0.2, duration: 1 }}
-                  className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg"
-                />
-                
-                <div className="relative z-10 flex flex-col justify-between  items-center h-full text-white text-center">
-                  {/* Card Title */}
-                  <motion.h3
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: cardIndex * 0.15 + 0.2, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-lg sm:text-xl lg:text-2xl font-semibold  w-full border-b border-white pb-2 mb-3"
-                  >
-                    {skill.title}
-                  </motion.h3>
-                  
-                  {/* Skills List */}
+                <PixelCard
+                  variant="pink"
+                  className="w-full min-h-[320px] sm:h-[440px] p-4 sm:p-6 relative overflow-hidden"
+                >
+                  {/* Background gradient animation */}
                   <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ staggerChildren: 0.03, delayChildren: cardIndex * 0.15 + 0.4 }}
-                    className="flex-1 flex items-center  w-full"
-                  >
-                    <motion.div
-                      className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed w-full space-y-3"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 0.1 }}
+                    transition={{ delay: cardIndex * 0.2, duration: 1 }}
+                    className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg"
+                  />
+                  <div className="relative z-10 flex flex-col justify-between  items-center h-full text-white text-center">
+                    {/* Card Title */}
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: cardIndex * 0.15 + 0.2, duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="text-lg sm:text-xl lg:text-2xl font-semibold  w-full border-b border-white pb-2 mb-3"
                     >
-                      {skill.items.map((item, index) => (
-                        <motion.div
-                          key={index}
-                          custom={index}
-                          variants={itemVariants}
-                          whileHover={{ 
-                            color: "#ffffff",
-                            scale: 1.05,
-                            transition: { duration: 0.2 }
-                          }}
-                          className="flex items-center gap-3 mx-1 my-1 px-2 py-2 transition-colors duration-200 hover:bg-white/5 rounded-lg"
-                        >
-                          {/* Logo on the left */}
-                          {skillLogos[item] ? (
-                            <img
-                              src={skillLogos[item]}
-                              alt={item + ' logo'}
-                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain flex-shrink-0"
-                              style={{ background: 'white', borderRadius: '0.25rem' }}
-                              onError={e => { e.target.style.display = 'none'; }}
-                            />
-                          ) : (
-                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                              <span className="text-white text-xs font-bold">
-                                {item.charAt(0).toUpperCase()}
-                              </span>
-                            </div>
-                          )}
-                          {/* Text */}
-                          <span className="flex-1 text-left">{item}</span>
-                        </motion.div>
-                      ))}
+                      {skill.title}
+                    </motion.h3>
+                    {/* Skills List */}
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ staggerChildren: 0.03, delayChildren: cardIndex * 0.15 + 0.4 }}
+                      className="flex-1 flex items-center  w-full"
+                    >
+                      <motion.div
+                        className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed w-full space-y-3"
+                      >
+                        {skill.items.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            custom={index}
+                            variants={itemVariants}
+                            whileHover={{ 
+                              color: "#ffffff",
+                              scale: 1.05,
+                              transition: { duration: 0.2 }
+                            }}
+                            className="flex items-center gap-3 mx-1 my-1 px-2 py-2 transition-colors duration-200 hover:bg-white/5 rounded-lg"
+                          >
+                            {/* Logo on the left */}
+                            {skillLogos[item] ? (
+                              <img
+                                src={skillLogos[item]}
+                                alt={item + ' logo'}
+                                className="w-6 h-6 sm:w-8 sm:h-8 object-contain flex-shrink-0"
+                                style={{ background: 'white', borderRadius: '0.25rem' }}
+                                onError={e => { e.target.style.display = 'none'; }}
+                              />
+                            ) : (
+                              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <span className="text-white text-xs font-bold">
+                                  {item.charAt(0).toUpperCase()}
+                                </span>
+                              </div>
+                            )}
+                            {/* Text */}
+                            <span className="flex-1 text-left">{item}</span>
+                          </motion.div>
+                        ))}
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                </div>
-              </PixelCard>
+                  </div>
+                </PixelCard>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </div>
+        {/* Second row: 2 cards, centered */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 w-full">
+          {skillsData.slice(3, 5).map((skill, cardIndex) => (
+            <motion.div
+              key={skill.title}
+              variants={cardVariants}
+              whileHover="hover"
+              className="w-full max-w-lg"
+            >
+              <motion.div
+                variants={cardHoverVariants}
+                className="w-full h-full"
+              >
+                <PixelCard
+                  variant="pink"
+                  className="w-full min-h-[320px] sm:h-[440px] p-4 sm:p-6 relative overflow-hidden"
+                >
+                  {/* Background gradient animation */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 0.1 }}
+                    transition={{ delay: (cardIndex+3) * 0.2, duration: 1 }}
+                    className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg"
+                  />
+                  <div className="relative z-10 flex flex-col justify-between  items-center h-full text-white text-center">
+                    {/* Card Title */}
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (cardIndex+3) * 0.15 + 0.2, duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="text-lg sm:text-xl lg:text-2xl font-semibold  w-full border-b border-white pb-2 mb-3"
+                    >
+                      {skill.title}
+                    </motion.h3>
+                    {/* Skills List */}
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ staggerChildren: 0.03, delayChildren: (cardIndex+3) * 0.15 + 0.4 }}
+                      className="flex-1 flex items-center  w-full"
+                    >
+                      <motion.div
+                        className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed w-full space-y-3"
+                      >
+                        {skill.items.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            custom={index}
+                            variants={itemVariants}
+                            whileHover={{ 
+                              color: "#ffffff",
+                              scale: 1.05,
+                              transition: { duration: 0.2 }
+                            }}
+                            className="flex items-center gap-3 mx-1 my-1 px-2 py-2 transition-colors duration-200 hover:bg-white/5 rounded-lg"
+                          >
+                            {/* Logo on the left */}
+                            {skillLogos[item] ? (
+                              <img
+                                src={skillLogos[item]}
+                                alt={item + ' logo'}
+                                className="w-6 h-6 sm:w-8 sm:h-8 object-contain flex-shrink-0"
+                                style={{ background: 'white', borderRadius: '0.25rem' }}
+                                onError={e => { e.target.style.display = 'none'; }}
+                              />
+                            ) : (
+                              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex-shrink-0 flex items-center justify-center">
+                                <span className="text-white text-xs font-bold">
+                                  {item.charAt(0).toUpperCase()}
+                                </span>
+                              </div>
+                            )}
+                            {/* Text */}
+                            <span className="flex-1 text-left">{item}</span>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                </PixelCard>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
       {/* Floating particles animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
