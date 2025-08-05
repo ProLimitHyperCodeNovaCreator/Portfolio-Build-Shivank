@@ -21,9 +21,7 @@ export default function Component() {
   const dot1Ref = useRef<HTMLDivElement>(null);
   const dot2Ref = useRef<HTMLDivElement>(null);
   const dot3Ref = useRef<HTMLDivElement>(null);
-  const dot4Ref = useRef<HTMLDivElement>(null);
   const dot5Ref = useRef<HTMLDivElement>(null);
-  const dot6Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -64,8 +62,8 @@ export default function Component() {
                 start: "top bottom", // Start when footer enters viewport from bottom
                 end: "bottom top", // End when footer leaves viewport at top
               },
-              y: "-100vh", // Move up
-              x: "50vw", // Move right
+              y: "-80vh", // Move up
+              x: "20vw", // Move right
               scale: 1.5, // Scale up
               opacity: 0.5, // Fade slightly
               ease: "power1.out",
@@ -83,7 +81,7 @@ export default function Component() {
                 start: "top bottom",
                 end: "bottom top",
               },
-              y: "50vh", // Move down
+              y: "40vh", // Move down
               x: "-80vw", // Move left
               scale: 0.8, // Scale down
               opacity: 0.6, // Fade slightly
@@ -110,24 +108,6 @@ export default function Component() {
           );
         }
 
-        if (dot4Ref.current) {
-          triggers.push(
-            gsap.to(dot4Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom",
-                end: "bottom top",
-              },
-              x: "40vw",
-              y: "-50vh",
-              scale: 1.8,
-              opacity: 0.4,
-              ease: "power2.inOut",
-            })
-          );
-        }
-
         if (dot5Ref.current) {
           triggers.push(
             gsap.to(dot5Ref.current, {
@@ -138,7 +118,7 @@ export default function Component() {
                 end: "bottom top",
               },
               x: "-30vw",
-              y: "-70vh",
+              y: "-150vh",
               scale: 1.2,
               rotation: 180,
               opacity: 0.3,
@@ -147,23 +127,6 @@ export default function Component() {
           );
         }
 
-        if (dot6Ref.current) {
-          triggers.push(
-            gsap.to(dot6Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom",
-                end: "bottom top",
-              },
-              x: "10vw",
-              y: "60vh",
-              scale: 0.6,
-              opacity: 0.2,
-              ease: "power1.in",
-            })
-          );
-        }
       } catch (error) {
         console.error("Error setting up footer animations:", error);
       }
@@ -179,31 +142,25 @@ export default function Component() {
   }, []);
 
   return (
-    <footer className="bg-black text-white py-8 sm:py-12 md:py-16 sm:px-6 md:px-8 relative overflow-hidden">
+    <footer className="bg-black text-white py-8 sm:py-12 md:py-16 sm:px-6 md:px-8 relative">
       <div
-        ref={dot1Ref}
-        className="w-[20vh] h-[20vh] bg-[#ff3d00] absolute bottom-10 left-0 rounded-full z-[0]"
-      ></div>
-      <div
-        ref={dot2Ref}
-        className="w-[20vh] h-[20vh] bg-[#7c4dff] absolute top-50 right-0 rounded-full z-[0]"
-      ></div>
-      <div
-        ref={dot3Ref}
-        className="w-[20vh] h-[20vh] bg-[#00e5ff] absolute top-20 left-[30%] rounded-full z-[0]"
-      ></div>
-      <div
-        ref={dot4Ref}
-        className="w-[15vh] h-[15vh] bg-[#76ff03] absolute top-[10%] left-[10%] rounded-full z-[0]"
-      ></div>
-      <div
-        ref={dot5Ref}
-        className="w-[18vh] h-[18vh] bg-[#ffea00] absolute bottom-[5%] right-[10%] rounded-full z-[0]"
-      ></div>
-      <div
-        ref={dot6Ref}
-        className="w-[12vh] h-[12vh] bg-[#ff4081] absolute top-[50%] left-[50%] rounded-full z-[0]"
-      ></div>
+  ref={dot1Ref}
+  className="w-[20vh] h-[20vh] bg-[#d9022c] absolute bottom-10 left-0 rounded-full z-[0] shadow-[0_0_60px_#ff174460]"
+></div>
+<div
+  ref={dot2Ref}
+  className="w-[20vh] h-[20vh] bg-[#c70e0e] absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full z-[0] shadow-[0_0_60px_#b71c1c60]"
+></div>
+<div
+  ref={dot3Ref}
+  className="w-[20vh] h-[20vh] bg-[#f72314] absolute top-20 left-[30%] rounded-full z-[0] shadow-[0_0_60px_#f4433660]"
+></div>
+<div
+  ref={dot5Ref}
+  className="w-[18vh] h-[18vh] bg-[#ff0000] absolute bottom-[5%] right-[10%] rounded-full z-[0] shadow-[0_0_60px_#880e4f60]"
+></div>
+
+
 
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
