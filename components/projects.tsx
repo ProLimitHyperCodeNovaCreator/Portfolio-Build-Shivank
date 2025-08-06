@@ -59,12 +59,12 @@ export default function SwipeSection() {
           <div className="description panel flex-shrink-0 flex flex-col items-center justify-center w-screen h-screen bg-black text-white p-8 text-center">
             <div>
               <h1 className="text-[5rem] font-light tracking-wide">PROJECTS</h1>
-              <div className="w-[40vw] h-[0.2rem] bg-[#ff0000] my-6"></div>
+              <div className="w-[40vw] h-[0.2rem] bg-red-500 my-6"></div>
             </div>
           </div>
 
           {/* Panel 2 */}
-          <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-[#ff0000] text-gray-800">
+          <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
             <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12">
               {/* Image */}
               <div className="w-full md:w-[80%] flex justify-center">
@@ -125,7 +125,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block "
                 >
-                  <button className="mt-4 px-6 py-2 bg-black text-red-600 font-semibold rounded-lg shadow-md hover:bg-red-600 transition duration-300 border border-red-600 hover:text-white cursor-pointer">
+                  <button className="mt-4 px-6 py-2 bg-black text-red-500 font-semibold rounded-lg shadow-md hover:bg-red-500 transition duration-300 border border-red-500 hover:text-white cursor-pointer">
                     View on GitHub
                   </button>
                 </a>
@@ -134,7 +134,7 @@ export default function SwipeSection() {
           </section>
 
           {/* Panel 4 */}
-          <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-[#ff0000] text-gray-800">
+          <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
             <div className="flex flex-col md:flex-row items-center justify-around w-full max-w-[90vw] gap-12">
               <div className="w-full md:w-[80%] flex justify-center ">
                 <Image

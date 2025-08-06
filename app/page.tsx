@@ -10,6 +10,7 @@ import Experience from "@/components/experiences";
 import HeroSection from "@/components/hero-section";
 import Projects from "@/components/projects";
 import Skills from "@/components/Skills";
+import FAB from "@/components/FAB";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);

@@ -192,7 +192,7 @@ function About() {
         </div>
         <div
           ref={lineRef}
-          className="w-[60vw] h-[0.5rem] bg-[#ff0000] my-6"
+          className="w-[60vw] h-[0.5rem] bg-red-500 my-6"
         ></div>
       </div>
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
@@ -223,7 +223,7 @@ function About() {
 
           {/* Content Section */}
           <div className="text-[#FFFFFF] flex flex-col justify-center items-center lg:items-start w-[80vw] md:max-w-[60vw] lg:max-w-[45vw] gap-8 py-10 lg:py-0 lg:px-10">
-            <div className="rounded-full bg-[#ff0000] w-[250px] h-[250px] flex items-center justify-center text-center">
+            <div className="rounded-full bg-red-500 w-[250px] h-[250px] flex items-center justify-center text-center">
               <h1
                 ref={headingRef}
                 className="text-white text-2xl sm:text-3xl md:text-5xl font-light leading-tight tracking-wide px-4"

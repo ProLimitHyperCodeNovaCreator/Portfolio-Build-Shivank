@@ -104,7 +104,7 @@ function Page() {
         </div>
         <div
           ref={lineRef}
-          className="w-[40vw] h-[0.2rem] bg-[#ff0000] my-6"
+          className="w-[40vw] h-[0.2rem] bg-red-500 my-6"
         ></div>
       </div>
       <div
@@ -137,7 +137,7 @@ function Page() {
           {projects.map((project, idx) => (
             <Link key={idx} href={project.href}>
               <div
-                className="group w-full text-right px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-600 border border-b border-white border-[1px] last:border-none"
+                className="group w-full text-right px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500 border border-b border-white border-[1px] last:border-none"
                 onMouseEnter={() => {
                   setImageHover(project.image);
                   setHoveredIndex(idx);

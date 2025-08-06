@@ -157,14 +157,14 @@ const Skills = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider relative"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wider relative"
         >
-          Technologies
+          SKILLS
           <motion.div
             initial={{ scaleX: 0 }}
             animate={titleInView ? { scaleX: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
-            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-[#ff0000] w-20 sm:w-24 md:w-32"
+            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-red-500 w-20 sm:w-24 md:w-32"
           />
         </motion.h2>
       </motion.div>
