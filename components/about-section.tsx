@@ -9,7 +9,19 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const LazyBlurImage = ({ src, alt, className, rounded = true }) => {
+interface LazyBlurImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  rounded?: boolean;
+}
+
+const LazyBlurImage = ({
+  src,
+  alt,
+  className,
+  rounded = true,
+}: LazyBlurImageProps) => {
   return (
     <Image
       src={src || "/placeholder.svg"}
@@ -52,18 +64,21 @@ function About() {
     const timer = setTimeout(() => {
       if (!containerRef.current) return;
 
-
       try {
         // Split text for animation
-        new SplitType(headingRef.current, {
-          types: "lines",
-          lineClass: "line-heading",
-        });
+        if (headingRef.current) {
+          new SplitType(headingRef.current, {
+            types: "lines",
+            lineClass: "line-heading",
+          });
+        }
 
-        new SplitType(paragraphRef.current, {
-          types: "lines",
-          lineClass: "line-paragraph",
-        });
+        if (paragraphRef.current) {
+          new SplitType(paragraphRef.current, {
+            types: "lines",
+            lineClass: "line-paragraph",
+          });
+        }
 
         // Set initial states
         gsap.set([".line-heading", ".line-paragraph"], {

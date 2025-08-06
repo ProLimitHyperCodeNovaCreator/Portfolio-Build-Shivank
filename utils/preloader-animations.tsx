@@ -4,9 +4,12 @@ export const opacity = {
   },
   enter: {
     opacity: 0.75,
-    transition: { duration: 1, delay: 0.2 },
+    transition: {
+      duration: 1,
+      delay: 0.2,
+    },
   },
-}
+};
 
 export const slideUp = {
   initial: {
@@ -14,9 +17,13 @@ export const slideUp = {
   },
   exit: {
     top: "-100vh",
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
+    transition: {
+      duration: 0.8,
+      ease: [0.76, 0, 0.24, 1] as const, // ✅ FIX: Cast as const tuple
+      delay: 0.2,
+    },
   },
-}
+};
 
 export const parallaxVariants = {
   hidden: { opacity: 0, y: 100 },
@@ -28,7 +35,7 @@ export const parallaxVariants = {
       ease: "easeOut",
     },
   },
-}
+};
 
 export const zoomVariants = {
   hidden: { scale: 0.8, opacity: 0 },
@@ -40,4 +47,4 @@ export const zoomVariants = {
       ease: "easeOut",
     },
   },
-}
+};

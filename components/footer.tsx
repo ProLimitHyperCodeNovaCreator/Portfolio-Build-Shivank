@@ -1,10 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -37,95 +34,102 @@ export default function Component() {
         gsap.set(bigHeadingRef.current, {
           x: "-10%",
         });
-        triggers.push(
-          gsap.to(bigHeadingRef.current, {
-            scrollTrigger: {
-              trigger: containerRef.current,
-              scrub: 2,
-              start: "top 90%",
-              end: "bottom 10%",
-            },
-            x: "+20%",
-            ease: "none",
-            duration: 3,
-          })
-        );
+        const craftedTween = gsap.to(bigHeadingRef.current, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: 2,
+            start: "top 90%",
+            end: "bottom 10%",
+          },
+          x: "+20%",
+          ease: "none",
+          duration: 3,
+        });
+
+        triggers.push(craftedTween.scrollTrigger!); // ✅ push ScrollTrigger
 
         // Animation for Dot 1 (bottom-left)
         if (dot1Ref.current) {
-          triggers.push(
-            gsap.to(dot1Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom", // Start when footer enters viewport from bottom
-                end: "bottom top", // End when footer leaves viewport at top
-              },
-              y: "-80vh", // Move up
-              x: "40vw", // Move right
-              scale: 1.5, // Scale up
-              opacity: 0.5, // Fade slightly
-              ease: "power1.out",
-            })
-          );
+          const dot1Tween = gsap.to(dot1Ref.current, {
+            scrollTrigger: {
+              trigger: containerRef.current,
+              scrub: 1,
+              start: "top bottom",
+              end: "bottom top",
+            },
+            y: "-80vh",
+            x: "40vw",
+            scale: 1.5,
+            opacity: 0.5,
+            ease: "power1.out",
+          });
+
+          triggers.push(dot1Tween.scrollTrigger!); // ✅ Correct: this is a ScrollTrigger
         }
 
         // Animation for Dot 2 (top-right)
+        // Dot 2 (top-right)
         if (dot2Ref.current) {
-          triggers.push(
-            gsap.to(dot2Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom",
-                end: "bottom top",
-              },
-              y: "40vh", // Move down
-              x: "-80vw", // Move left
-              scale: 0.8, // Scale down
-              opacity: 0.6, // Fade slightly
-              ease: "power1.out",
-            })
-          );
+          const dot2Tween = gsap.to(dot2Ref.current, {
+            scrollTrigger: {
+              trigger: containerRef.current,
+              scrub: 1,
+              start: "top bottom",
+              end: "bottom top",
+            },
+            y: "40vh",
+            x: "-80vw",
+            scale: 0.8,
+            opacity: 0.6,
+            ease: "power1.out",
+          });
+
+          if (dot2Tween.scrollTrigger) {
+            triggers.push(dot2Tween.scrollTrigger);
+          }
         }
 
-        // Animation for Dot 3 (top-left-ish)
+        // Dot 3 (top-left-ish)
         if (dot3Ref.current) {
-          triggers.push(
-            gsap.to(dot3Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom",
-                end: "bottom top",
-              },
-              y: "50vh", // Move down
-              x: "20vw", // Move right
-              rotation: 360, // Rotate
-              ease: "power1.out",
-            })
-          );
+          const dot3Tween = gsap.to(dot3Ref.current, {
+            scrollTrigger: {
+              trigger: containerRef.current,
+              scrub: 1,
+              start: "top bottom",
+              end: "bottom top",
+            },
+            y: "50vh",
+            x: "20vw",
+            rotation: 360,
+            ease: "power1.out",
+          });
+
+          if (dot3Tween.scrollTrigger) {
+            triggers.push(dot3Tween.scrollTrigger);
+          }
         }
 
+        // Dot 5 (bottom-right-ish)
         if (dot5Ref.current) {
-          triggers.push(
-            gsap.to(dot5Ref.current, {
-              scrollTrigger: {
-                trigger: containerRef.current,
-                scrub: 1,
-                start: "top bottom",
-                end: "bottom top",
-              },
-              x: "-30vw",
-              y: "-150vh",
-              scale: 1.2,
-              rotation: 180,
-              opacity: 0.3,
-              ease: "circ.inOut",
-            })
-          );
-        }
+          const dot5Tween = gsap.to(dot5Ref.current, {
+            scrollTrigger: {
+              trigger: containerRef.current,
+              scrub: 1,
+              start: "top bottom",
+              end: "bottom top",
+            },
+            x: "-30vw",
+            y: "-150vh",
+            scale: 1.2,
+            rotation: 180,
+            opacity: 0.3,
+            ease: "circ.inOut",
+          });
 
+          if (dot5Tween.scrollTrigger) {
+            triggers.push(dot5Tween.scrollTrigger);
+          }
+        }
       } catch (error) {
         console.error("Error setting up footer animations:", error);
       }
@@ -136,30 +140,28 @@ export default function Component() {
 
     return () => {
       clearTimeout(timer);
-      triggers.forEach((st) => st.kill()); // Kill all created ScrollTriggers
+      triggers.forEach((st) => st.kill());
     };
   }, []);
 
   return (
     <footer className="bg-black text-white py-8 sm:py-12 md:py-16 sm:px-6 md:px-8 relative">
       <div
-  ref={dot1Ref}
-  className="w-[20vh] h-[20vh] bg-[#d9022c] absolute bottom-10 left-0 rounded-full z-[0] shadow-[0_0_60px_#ff174460]"
-></div>
-<div
-  ref={dot2Ref}
-  className="w-[20vh] h-[20vh] bg-[#c70e0e] absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full z-[0] shadow-[0_0_60px_#b71c1c60]"
-></div>
-<div
-  ref={dot3Ref}
-  className="w-[20vh] h-[20vh] bg-[#f72314] absolute top-20 left-[30%] rounded-full z-[0] shadow-[0_0_60px_#f4433660]"
-></div>
-<div
-  ref={dot5Ref}
-  className="w-[18vh] h-[18vh] bg-[#ff0000] absolute bottom-[5%] right-[10%] rounded-full z-[0] shadow-[0_0_60px_#880e4f60]"
-></div>
-
-
+        ref={dot1Ref}
+        className="w-[20vh] h-[20vh] bg-[#d9022c] absolute bottom-10 left-0 rounded-full z-[0] shadow-[0_0_60px_#ff174460]"
+      ></div>
+      <div
+        ref={dot2Ref}
+        className="w-[20vh] h-[20vh] bg-[#c70e0e] absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full z-[0] shadow-[0_0_60px_#b71c1c60]"
+      ></div>
+      <div
+        ref={dot3Ref}
+        className="w-[20vh] h-[20vh] bg-[#f72314] absolute top-20 left-[30%] rounded-full z-[0] shadow-[0_0_60px_#f4433660]"
+      ></div>
+      <div
+        ref={dot5Ref}
+        className="w-[18vh] h-[18vh] bg-[#ff0000] absolute bottom-[5%] right-[10%] rounded-full z-[0] shadow-[0_0_60px_#880e4f60]"
+      ></div>
 
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
@@ -203,7 +205,16 @@ export default function Component() {
         {/* Bottom navigation links */}
         <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium">
           <div className="hover:text-gray-300 transition-colors z-10">
-            MADE WITH ❤ BY <span><Link href="www.linkedin.com/in/adityaag2005" target="_blank" className="underline cursor-pointer">ADITYA AGARWAL</Link></span>
+            MADE WITH ❤ BY{" "}
+            <span>
+              <Link
+                href="www.linkedin.com/in/adityaag2005"
+                target="_blank"
+                className="underline cursor-pointer"
+              >
+                ADITYA AGARWAL
+              </Link>
+            </span>
           </div>
           <div className="hover:text-gray-300 transition-colors z-10">
             © All Rights Reserved
