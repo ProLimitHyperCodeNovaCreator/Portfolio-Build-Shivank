@@ -59,38 +59,32 @@ export default function SwipeSection() {
           <div className="description panel flex-shrink-0 flex flex-col items-center justify-center w-screen h-screen bg-black text-white p-8 text-center">
             <div>
               <h1 className="text-[5rem] font-light tracking-wide">PROJECTS</h1>
-              <div
-          className="w-[40vw] h-[0.2rem] bg-[#ff0000] my-6"
-        ></div>
+              <div className="w-[40vw] h-[0.2rem] bg-[#ff0000] my-6"></div>
             </div>
           </div>
 
           {/* Panel 2 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-[#ff0000] text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1200px] gap-12 px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12">
               {/* Image */}
-              <div className="w-full md:w-1/2 flex justify-center">
+              <div className="w-full md:w-[80%] flex justify-center">
                 <Image
                   src="/Pimg2.jpeg"
                   alt="Project 2"
                   width={600}
                   height={400}
-                  className="rounded-xl shadow-xl w-[500px] md:w-[600px] object-cover"
+                  className="rounded-xl shadow-xl w-[90vw] h-[70vh] object-cover"
                 />
               </div>
 
               {/* Text */}
-              <div className="w-full md:w-1/2 space-y-6 text-white">
-                <h2 className="text-5xl font-bold tracking-wide">
-                  GNSS Denied Navigation
+              <div className="w-full md:w-[50%] space-y-6 text-white">
+                <h2 className="text-[2.5rem] font-bold tracking-wide leading-tight">
+                  GNSS Denied RTAB-Map Based Navigation
                 </h2>
-                <p className="text-base md:text-xl leading-relaxed tracking-wide mt-4">
-                  This experience involved working on high-impact projects using
-                  modern technologies. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Voluptates voluptatum nostrum, eveniet quas
-                  perspiciatis repellendus. Et fugit dignissimos quisquam natus
-                  corrupti, esse ut perferendis incidunt porro nostrum
-                  reprehenderit ratione necessitatibus.
+                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                  Performed real time mapping and autonomous navigation using RTAB-Map in a GPS denied environment with a PX4 based drone in Gazebo simulation. Integrated a depth camera with correct TF tree generation, synchronized PX4 Gazebo topics via Micro XRCE DDS, and bridged them to ROS. Successfully transitioned this pipeline to hardware, achieving accurate SLAM and navigation in indoor environments using only vision based inputs.
+
                 </p>
                 <a
                   href="https://github.com/avianbob/PX4-GPS-Denied-Navigation-RTAB-Mapping.git"
@@ -98,7 +92,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300">
+                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
                     View on GitHub
                   </button>
                 </a>
@@ -108,27 +102,22 @@ export default function SwipeSection() {
 
           {/* Panel 3 */}
           <section className="panel flex-shrink-0 flex items-center justify-center w-screen h-screen bg-black text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1200px] gap-12 px-8">
-              <div className="w-full md:w-1/2 flex justify-center">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12">
+              <div className="w-full md:w-[80%] flex justify-center">
                 <Image
                   src="/Pimg1.jpeg"
                   alt="Project 1"
-                  width={600}
-                  height={400}
-                  className="rounded-xl shadow-xl w-[500px] md:w-[600px] object-cover"
+                  width={1200}
+                  height={800}
+                  className="rounded-xl shadow-xl w-[90vw] h-[70vh] object-cover"
                 />
               </div>
-              <div className="w-full md:w-1/2 space-y-6 text-white">
-                <h2 className="text-5xl font-bold tracking-wide">
-                  Autonomous Mapping and Navigation
+              <div className="w-full md:w-[50%] space-y-6 text-white">
+                <h2 className="text-[2.5rem] font-bold tracking-wide leading-tight">
+                  Autonomous Drone Navigation (IRoC-U 2025)
                 </h2>
-                <p className="text-base md:text-xl leading-relaxed tracking-wide mt-4">
-                  This experience involved working on high-impact projects using
-                  modern technologies. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Voluptates voluptatum nostrum, eveniet quas
-                  perspiciatis repellendus. Et fugit dignissimos quisquam natus
-                  corrupti, esse ut perferendis incidunt porro nostrum
-                  reprehenderit ratione necessitatibus.
+                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                  Contributed to the ISRO Robotics Challenge 2025 by implementing autonomous drone navigation and mapping in simulation and hardware. Achieved vertical navigation without GPS using onboard sensors, enabling stable altitude hold and up down motion. Integrated mapping components and tested vision based autonomy in structured environments, laying groundwork for full 3D navigation and control in future stages.
                 </p>
                 <a
                   href="https://github.com/avianbob/PX4-Autonomous-Mission.git"
@@ -146,27 +135,22 @@ export default function SwipeSection() {
 
           {/* Panel 4 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-[#ff0000] text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1200px] gap-12 px-8">
-              <div className="w-full md:w-1/2 flex justify-center">
+            <div className="flex flex-col md:flex-row items-center justify-around w-full max-w-[90vw] gap-12">
+              <div className="w-full md:w-[80%] flex justify-center ">
                 <Image
                   src="/Pimg3.jpeg"
                   alt="Project 3"
-                  width={600}
-                  height={400}
-                  className="rounded-xl shadow-xl w-[500px] md:w-[600px] object-cover"
+                  width={1200}
+                  height={800}
+                  className="rounded-xl shadow-xl w-[90vw] h-[70vh] object-cover"
                 />
               </div>
-              <div className="w-full md:w-1/2 space-y-6 text-white">
-                <h2 className="text-5xl font-bold tracking-wide">
-                  Fault Tolerant Control Systems
+              <div className="w-full md:w-[50%] space-y-6 text-white">
+                <h2 className="text-[2.5rem] font-bold tracking-wide leading-tight">
+                  Fault Tolerant Control for Motor Failure in Drones
                 </h2>
-                <p className="text-base md:text-xl leading-relaxed tracking-wide mt-4">
-                  This experience involved working on high-impact projects using
-                  modern technologies. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Voluptates voluptatum nostrum, eveniet quas
-                  perspiciatis repellendus. Et fugit dignissimos quisquam natus
-                  corrupti, esse ut perferendis incidunt porro nostrum
-                  reprehenderit ratione necessitatibus.
+                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                  Developed a robust fault tolerant control system for quadcopters under single motor failure using PX4. Injected motor failures in discrete, linear, and sinusoidal patterns through deep firmware modifications. A novel angular rate based detection mechanism achieved &lt;0.05s response time. Explored control strategies like SMC, MPC, and Geometric+MARC; implemented geometric control in simulation and partially on hardware for brief durations under failure conditions.
                 </p>
                 <a
                   href="https://github.com/avianbob/PX4-Fault-Tolerent-Control.git"
@@ -174,7 +158,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300">
+                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
                     View on GitHub
                   </button>
                 </a>

@@ -204,7 +204,7 @@ export default function Component() {
         {/* Bottom navigation links */}
         <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium">
           <div className="hover:text-gray-300 transition-colors z-10">
-            MADE WITH ❤ BY <span><a href="www.linkedin.com/in/adityaag2005" target="_blank" className="underline cursor-pointer">ADITYA AGARWAL</a></span>
+            MADE WITH ❤ BY <span><Link href="www.linkedin.com/in/adityaag2005" target="_blank" className="underline cursor-pointer">ADITYA AGARWAL</Link></span>
           </div>
           <div className="hover:text-gray-300 transition-colors z-10">
             © All Rights Reserved

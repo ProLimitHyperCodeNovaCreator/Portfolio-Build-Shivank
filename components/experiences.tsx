@@ -160,7 +160,7 @@ function Page() {
                       {project.name}
                     </span>
                     <span
-                      className={`absolute top-0 right-0 w-full text-white text-[1.5rem] font-light tracking-wide transition-all duration-300 ${
+                      className={`absolute top-0 right-0 w-full text-white text-[1.4rem] font-light tracking-wide transition-all duration-300 ${
                         hoveredIndex === idx
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 translate-y-[100%]"

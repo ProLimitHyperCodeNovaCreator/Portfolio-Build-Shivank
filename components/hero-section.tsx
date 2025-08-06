@@ -15,9 +15,9 @@ export default function HeroSection() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      <div className="container mx-auto px-6 py-12 h-screen flex flex-col justify-between">
+      <div className="container mx-auto px-6 py-12 h-screen flex flex-col justify-center">
         {/* Top Section */}
-        <div className="flex justify-center pt-8">
+        <div className="flex justify-center pt-8 ">
           <div
             className={`transform transition-all duration-1000 ease-out ${
               isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -29,7 +29,7 @@ export default function HeroSection() {
         </div>
 
         {/* Main Title */}
-        <div className="flex-1 flex items-center justify-center min-h-0">
+        <div className="flex-1 flex items-center justify-center min-h-0 max-h-[60vh] mb-10">
           <div className="text-center w-full flex justify-center">
             <h1
               className={`font-black leading-none text-red-500 transform transition-all duration-1200 ease-out whitespace-nowrap ${
