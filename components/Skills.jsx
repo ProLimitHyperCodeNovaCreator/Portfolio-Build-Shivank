@@ -17,10 +17,14 @@ const skillLogos = {
   "SLAM": "/shivank_icons/slam.png",
   "Microsoft Azure": "/shivank_icons/Microsoft_Azure.svg",
   "Postman": "/shivank_icons/postman.svg",
-  "I2C": "/shivank_icons/I²C_bus_logo.svg",
+  "I2C": "/shivank_icons/i2c.png",
   "u-center": "/shivank_icons/U-blox_logo.svg",
  "Docker": "/shivank_icons/docker.svg",
   "Git": "/shivank_icons/git.svg",
+  "UART": "/shivank_icons/uart.png",
+  "CAN Bus": "/shivank_icons/can.png",
+  "Micro XRCE-DDS": "/shivank_icons/micro-xrce.png",
+  "Visual-Inertial Odometry": "/shivank_icons/vio.png"
 };
 
 const skillsData = [
