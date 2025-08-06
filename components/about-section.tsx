@@ -55,12 +55,12 @@ function About() {
 
       try {
         // Split text for animation
-        const headingSplit = new SplitType(headingRef.current, {
+        new SplitType(headingRef.current, {
           types: "lines",
           lineClass: "line-heading",
         });
 
-        const paragraphSplit = new SplitType(paragraphRef.current, {
+        new SplitType(paragraphRef.current, {
           types: "lines",
           lineClass: "line-paragraph",
         });
