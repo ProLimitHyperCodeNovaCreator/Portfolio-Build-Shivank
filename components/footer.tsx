@@ -145,76 +145,84 @@ export default function Component() {
   }, []);
 
   return (
-    <footer className="bg-black text-white py-8 sm:py-12 md:py-16 sm:px-6 md:px-8 relative">
+    <footer className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 relative">
+      {/* Responsive Dots */}
+      {/* Dot 1 */}
       <div
         ref={dot1Ref}
-        className="w-[20vh] h-[20vh] bg-[#d9022c] absolute bottom-10 left-0 rounded-full z-[0] shadow-[0_0_60px_#ff174460]"
+        className="hidden sm:block w-[12vh] sm:w-[16vh] md:w-[20vh] h-[12vh] sm:h-[16vh] md:h-[20vh] bg-[#d9022c] absolute bottom-10 left-0 rounded-full z-[0] shadow-[0_0_60px_#ff174460]"
       ></div>
+
+      {/* Dot 2 */}
       <div
         ref={dot2Ref}
-        className="w-[20vh] h-[20vh] bg-[#c70e0e] absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full z-[0] shadow-[0_0_60px_#b71c1c60]"
+        className="hidden sm:block w-[12vh] sm:w-[16vh] md:w-[20vh] h-[12vh] sm:h-[16vh] md:h-[20vh] bg-[#c70e0e] absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full z-[0] shadow-[0_0_60px_#b71c1c60]"
       ></div>
+
+      {/* Dot 3 */}
       <div
         ref={dot3Ref}
-        className="w-[20vh] h-[20vh] bg-[#f72314] absolute top-20 left-[30%] rounded-full z-[0] shadow-[0_0_60px_#f4433660]"
+        className="hidden sm:block w-[12vh] sm:w-[16vh] md:w-[20vh] h-[12vh] sm:h-[16vh] md:h-[20vh] bg-[#f72314] absolute top-20 left-[30%] rounded-full z-[0] shadow-[0_0_60px_#f4433660]"
       ></div>
+
+      {/* Dot 5 */}
       <div
         ref={dot5Ref}
-        className="w-[18vh] h-[18vh] bg-[#ff0000] absolute bottom-[5%] right-[10%] rounded-full z-[0] shadow-[0_0_60px_#880e4f60]"
+        className="hidden sm:block w-[11vh] sm:w-[14vh] md:w-[18vh] h-[11vh] sm:h-[14vh] md:h-[18vh] bg-[#ff0000] absolute bottom-[5%] right-[10%] rounded-full z-[0] shadow-[0_0_60px_#880e4f60]"
       ></div>
 
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
-        <div className="flex justify-around gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium">
-          <div>
-            <Link
-              href="https://github.com/avianbob"
-              className="hover:text-gray-300 transition-colors z-10"
-            >
-              <FontAwesomeIcon icon={faGithub} /> GITHUB
-            </Link>
-          </div>
-          <div>
-            <Link
-              href="https://www.linkedin.com/in/shivankgoyal23"
-              className="hover:text-gray-300 transition-colors z-10"
-            >
-              <FontAwesomeIcon icon={faLinkedin} /> LINKEDIN
-            </Link>
-          </div>
-          <div>
-            <Link
-              href="mailto:shivank.imp@gmail.com"
-              className="hover:text-gray-300 transition-colors z-10"
-            >
-              <FontAwesomeIcon icon={faEnvelope} /> EMAIL
-            </Link>
-          </div>
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium text-center">
+          <Link
+            href="https://github.com/avianbob"
+            className="hover:text-gray-300 transition-colors z-10"
+          >
+            <FontAwesomeIcon icon={faGithub} /> GITHUB
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/shivankgoyal23"
+            className="hover:text-gray-300 transition-colors z-10"
+          >
+            <FontAwesomeIcon icon={faLinkedin} /> LINKEDIN
+          </Link>
+          <Link
+            href="mailto:shivank.imp@gmail.com"
+            className="hover:text-gray-300 transition-colors z-10"
+          >
+            <FontAwesomeIcon icon={faEnvelope} /> EMAIL
+          </Link>
         </div>
 
-        {/* Large BIGFACE text */}
-        <div ref={containerRef} className="text-center mb-8 sm:mb-12 md:mb-16">
+        {/* BIGFACE Heading */}
+        <div
+          ref={containerRef}
+          className="text-center mb-8 sm:mb-12 md:mb-16 px-2"
+        >
           <h1
             ref={bigHeadingRef}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[17.5rem] z-10 font-black tracking-tighter leading-none"
+            className="z-10 font-black tracking-tighter leading-none"
+            style={{
+              fontSize: "clamp(3.5rem, 18vw, 17.5rem)",
+              lineHeight: "1",
+              whiteSpace: "nowrap",
+            }}
           >
             BUILD ON
           </h1>
         </div>
 
-        {/* Bottom navigation links */}
-        <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium">
+        {/* Bottom nav + copyright */}
+        <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium gap-4 text-center sm:text-left">
           <div className="hover:text-gray-300 transition-colors z-10">
             MADE WITH ❤ BY{" "}
-            <span>
-              <Link
-                href="www.linkedin.com/in/adityaag2005"
-                target="_blank"
-                className="underline cursor-pointer"
-              >
-                ADITYA AGARWAL
-              </Link>
-            </span>
+            <Link
+              href="https://www.linkedin.com/in/adityaag2005"
+              target="_blank"
+              className="underline cursor-pointer"
+            >
+              ADITYA AGARWAL
+            </Link>
           </div>
           <div className="hover:text-gray-300 transition-colors z-10">
             © All Rights Reserved

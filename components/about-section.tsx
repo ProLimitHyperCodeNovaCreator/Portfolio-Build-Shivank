@@ -180,21 +180,22 @@ function About() {
 
   return (
     <div className="flex flex-col min-h-screen justify-around items-center py-10">
-      <div className="flex flex-col justify-center items-center">
-        <div className="h-auto w-auto relative flex flex-col justify-center items-center overflow-hidden">
-          <h1 className="text-[#FFFFFF] text-[4rem] tracking-wide font-light">
+      <div className="flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <div className="relative flex flex-col justify-center items-center overflow-hidden">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide font-light leading-tight">
             FROM MECHANISMS TO MACHINERY
           </h1>
           <div
             ref={aboutHeadingRef}
-            className="w-full h-full bg-[#ff0000] absolute top-0"
+            className="absolute top-0 left-0 w-full h-full bg-red-500 z-[-1]"
           ></div>
         </div>
         <div
           ref={lineRef}
-          className="w-[60vw] h-[0.5rem] bg-red-500 my-6"
+          className="w-[80vw] sm:w-[70vw] md:w-[60vw] h-1 bg-red-500 my-6"
         ></div>
       </div>
+
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
         <div
           ref={containerRef}

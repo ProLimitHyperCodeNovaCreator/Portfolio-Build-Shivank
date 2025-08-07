@@ -14,19 +14,22 @@ const projects = [
     name: "TECHEAGLE",
     href: "/projects/project-three",
     image: "/Exp3.jpeg",
-    description: "Developed GPS free drone navigation using visual SLAM, OpenVINS, and real hardware integration. Covered simulation to deployment, focusing on sensor fusion and autonomous flight systems.",
+    description:
+      "Developed GPS free drone navigation using visual SLAM, OpenVINS, and real hardware integration. Covered simulation to deployment, focusing on sensor fusion and autonomous flight systems.",
   },
   {
     name: "Indian Robotics Solution",
     href: "/projects/project-two",
     image: "/Exp2.jpeg",
-    description: "Secured drone GPS via UART/CAN protocol work and firmware tweaks. Customized QGroundControl, enhancing drone communication and embedded security.",
+    description:
+      "Secured drone GPS via UART/CAN protocol work and firmware tweaks. Customized QGroundControl, enhancing drone communication and embedded security.",
   },
   {
     name: "Cloudologix",
     href: "/projects/project-one",
     image: "/Exp1.png",
-    description: "Built Cloudoberry to unify Azure services like VMs, Kubernetes, SQL, App Services into one dashboard. Enabled cost analysis, idle shutdown, and efficient cloud monitoring with automation focus.",
+    description:
+      "Built Cloudoberry to unify Azure services like VMs, Kubernetes, SQL, App Services into one dashboard. Enabled cost analysis, idle shutdown, and efficient cloud monitoring with automation focus.",
   },
 ];
 
@@ -91,10 +94,11 @@ function Page() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between py-10 bg-black gap-10">
-      <div className="flex flex-col justify-center items-center z-10">
-        <div className="h-auto w-auto relative flex flex-col justify-center items-center overflow-hidden">
-          <h1 className="text-[#FFFFFF] text-[5rem] tracking-wide font-light">
+    <div className="min-h-screen flex flex-col items-center justify-between py-10 bg-black gap-10 w-full">
+      {/* Header */}
+      <div className="flex flex-col justify-center items-center z-10 px-4 text-center">
+        <div className="relative flex flex-col justify-center items-center overflow-hidden">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] tracking-wide font-light">
             EXPERIENCES
           </h1>
           <div
@@ -104,40 +108,41 @@ function Page() {
         </div>
         <div
           ref={lineRef}
-          className="w-[40vw] h-[0.2rem] bg-red-500 my-6"
+          className="w-[80vw] sm:w-[60vw] h-[0.2rem] bg-red-500 my-6"
         ></div>
       </div>
+
+      {/* Main section */}
       <div
         ref={containerRef}
-        className="flex flex-col lg:flex-row min-h-screen justify-between items-center gap-4 z-10"
+        className="flex flex-col lg:flex-row justify-center items-center px-4 w-full"
       >
-        <div className="overflow-hidden relative">
-          <div className="inline-block">
-            <div className="relative w-[45vw] h-[110vh] overflow-hidden rounded-lg">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={imageHover || "default"}
-                  src={imageHover || "/img2.jpeg"}
-                  alt="Project Preview"
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
-                  className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-700"
-                />
-              </AnimatePresence>
-            </div>
-          </div>
+        {/* Image container */}
+        <div className="relative w-full sm:w-[90vw] md:w-[80vw] lg:w-[60vw] xl:w-[65vw] 2xl:w-[70vw] h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[110vh] overflow-hidden rounded-lg">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={imageHover || "default"}
+              src={imageHover || "/img2.jpeg"}
+              alt="Project Preview"
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
+              className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-700"
+            />
+          </AnimatePresence>
           <div
             ref={overlayRef}
             className="absolute h-full inset-0 bg-black z-10"
           ></div>
         </div>
-        <div className="h-screen min-w-[40vw] bg-black px-6 py-12 flex flex-col justify-center z-10">
+
+        {/* Text container */}
+        <div className="w-full lg:max-w-[50vw] lg:min-w-[10vw] flex flex-col justify-center px-2 sm:px-6 py-8 lg:py-12 text-white gap-4">
           {projects.map((project, idx) => (
             <Link key={idx} href={project.href}>
               <div
-                className="group w-full text-right px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500 border border-b border-white border-[1px] last:border-none"
+                className="group text-right px-4 sm:px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500 border-b border-white/40 last:border-none"
                 onMouseEnter={() => {
                   setImageHover(project.image);
                   setHoveredIndex(idx);
@@ -147,28 +152,36 @@ function Page() {
                   setHoveredIndex(null);
                 }}
               >
-                <div className="text-right text-white font-light tracking-wide">
-                  <div className="text-right text-white text-[4rem] font-light tracking-wide relative min-h-[7rem] overflow-hidden">
+                {/* Desktop Hover Animation */}
+                <div className="hidden lg:block relative min-h-[7rem] overflow-hidden text-white font-light tracking-wide">
+                  <span
+                    className={`block transition-all duration-300 text-[2rem] md:text-[3rem] lg:text-[4rem] ${
+                      hoveredIndex === idx
+                        ? "opacity-0 -translate-y-full"
+                        : "opacity-100 translate-y-0"
+                    }`}
+                  >
+                    {project.name}
+                  </span>
+                  <span
+                    className={`absolute top-0 right-0 w-full text-[1.2rem] transition-all duration-300 ${
+                      hoveredIndex === idx
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-full"
+                    }`}
+                  >
+                    {project.description}
+                  </span>
+                </div>
 
-                    <span
-                      className={`block transition-all duration-300 ${
-                        hoveredIndex === idx
-                          ? "opacity-0 translate-y-[-100%]"
-                          : "opacity-100 translate-y-0"
-                      }`}
-                    >
-                      {project.name}
-                    </span>
-                    <span
-                      className={`absolute top-0 right-0 w-full text-white text-[1.4rem] font-light tracking-wide transition-all duration-300 ${
-                        hoveredIndex === idx
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-[100%]"
-                      }`}
-                    >
-                      {project.description}
-                    </span>
-                  </div>
+                {/* Mobile: Static Title + Description */}
+                <div className="lg:hidden flex flex-col text-white gap-1">
+                  <span className="text-[1.5rem] font-light tracking-wide">
+                    {project.name}
+                  </span>
+                  <span className="text-[1rem] text-white/90 leading-snug">
+                    {project.description}
+                  </span>
                 </div>
               </div>
             </Link>
