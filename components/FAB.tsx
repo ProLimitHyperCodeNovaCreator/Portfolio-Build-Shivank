@@ -108,14 +108,9 @@ const UltraElegantMenu: React.FC = () => {
       {/* Desktop Version - REDUCED GAP */}
       <div className="hidden md:block">
         <div 
-          className={`
-            group relative backdrop-blur-md bg-black/30 border-2 border-red-500/40
-            rounded-full shadow-lg overflow-hidden
-            transition-all duration-500 ease-in-out h-14
-            ${isExpanded 
-              ? 'w-[620px]' 
-              : 'w-28'
-            }
+          className={`group relative backdrop-blur-md bg-black/30 border-2 border-red-500/40
+            rounded-full shadow-lg overflow-hidden transition-all duration-500 ease-in-out h-14
+            ${isExpanded ? 'w-[580px]' : 'w-28'}
           `}
           onMouseEnter={() => setIsExpanded(true)}
           onMouseLeave={() => setIsExpanded(false)}
