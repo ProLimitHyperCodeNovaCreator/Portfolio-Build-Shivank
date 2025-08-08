@@ -34,7 +34,7 @@ export default function Page() {
       </AnimatePresence>
 
       {!isLoading && (
-        <div className="selection:bg-[#ff0000] selection:text-white">
+        <div className="selection:bg-red-500 selection:text-white scroll-smooth">
           <FAB />
           <section className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
             <HeroSection />

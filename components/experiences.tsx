@@ -1,6 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import Link from "next/link";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,21 +11,18 @@ if (typeof window !== "undefined") {
 const projects = [
   {
     name: "TECHEAGLE",
-    href: "/projects/project-three",
     image: "/Exp3.jpeg",
     description:
       "Developed GPS free drone navigation using visual SLAM, OpenVINS, and real hardware integration. Covered simulation to deployment, focusing on sensor fusion and autonomous flight systems.",
   },
   {
     name: "Indian Robotics Solution",
-    href: "/projects/project-two",
     image: "/Exp2.jpeg",
     description:
       "Secured drone GPS via UART/CAN protocol work and firmware tweaks. Customized QGroundControl, enhancing drone communication and embedded security.",
   },
   {
     name: "Cloudologix",
-    href: "/projects/project-one",
     image: "/Exp1.png",
     description:
       "Built Cloudoberry to unify Azure services like VMs, Kubernetes, SQL, App Services into one dashboard. Enabled cost analysis, idle shutdown, and efficient cloud monitoring with automation focus.",
@@ -40,6 +36,11 @@ function Page() {
   const containerRef = useRef(null);
   const [imageHover, setImageHover] = React.useState("");
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (idx: number) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
 
   useEffect(() => {
     if (
@@ -140,51 +141,79 @@ function Page() {
         {/* Text container */}
         <div className="w-full lg:max-w-[50vw] lg:min-w-[10vw] flex flex-col justify-center px-2 sm:px-6 py-8 lg:py-12 text-white gap-4">
           {projects.map((project, idx) => (
-            <Link key={idx} href={project.href}>
-              <div
-                className="group text-right px-4 sm:px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500 border-b border-white/40 last:border-none"
-                onMouseEnter={() => {
-                  setImageHover(project.image);
-                  setHoveredIndex(idx);
-                }}
-                onMouseLeave={() => {
-                  setImageHover("");
-                  setHoveredIndex(null);
-                }}
-              >
-                {/* Desktop Hover Animation */}
-                <div className="hidden lg:block relative min-h-[7rem] overflow-hidden text-white font-light tracking-wide">
-                  <span
-                    className={`block transition-all duration-300 text-[2rem] md:text-[3rem] lg:text-[4rem] ${
-                      hoveredIndex === idx
-                        ? "opacity-0 -translate-y-full"
-                        : "opacity-100 translate-y-0"
-                    }`}
-                  >
-                    {project.name}
-                  </span>
-                  <span
-                    className={`absolute top-0 right-0 w-full text-[1.2rem] transition-all duration-300 ${
-                      hoveredIndex === idx
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-full"
-                    }`}
-                  >
-                    {project.description}
-                  </span>
-                </div>
-
-                {/* Mobile: Static Title + Description */}
-                <div className="lg:hidden flex flex-col text-white gap-1">
-                  <span className="text-[1.5rem] font-light tracking-wide">
-                    {project.name}
-                  </span>
-                  <span className="text-[1rem] text-white/90 leading-snug">
-                    {project.description}
-                  </span>
-                </div>
+            <div
+              key={idx}
+              className="group text-right px-4 sm:px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500"
+              onMouseEnter={() => {
+                setImageHover(project.image);
+                setHoveredIndex(idx);
+              }}
+              onMouseLeave={() => {
+                setImageHover("");
+                setHoveredIndex(null);
+              }}
+            >
+              {/* Desktop Hover Animation */}
+              <div className="hidden lg:block relative min-h-[7rem] overflow-hidden text-white font-light tracking-wide">
+                <span
+                  className={`block transition-all duration-300 text-[2rem] md:text-[3rem] lg:text-[4rem] ${
+                    hoveredIndex === idx
+                      ? "opacity-0 -translate-y-full"
+                      : "opacity-100 translate-y-0"
+                  }`}
+                >
+                  {project.name}
+                </span>
+                <span
+                  className={`absolute top-0 right-0 w-full text-[1.2rem] transition-all duration-300 ${
+                    hoveredIndex === idx
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-full"
+                  }`}
+                >
+                  {project.description}
+                </span>
               </div>
-            </Link>
+
+              {/* Mobile: Static Title + Description */}
+              <button
+                onClick={() => handleToggle(idx)}
+                className={`w-full flex items-center justify-between px-6 py-4 bg-red-500 text-white font-medium text-lg md:text-xl shadow-lg transition-all duration-300 rounded-2xl md:hidden backdrop-blur-sm ${
+                  openIndex === idx ? "rounded-b-none" : ""
+                } hover:shadow-xl active:scale-[0.98] gap-4`}
+              >
+                <span className="tracking-wide">{project.name}</span>
+                <span
+                  className={`transition-transform duration-300 ease-in-out ${
+                    openIndex === idx ? "rotate-180" : ""
+                  }`}
+                >
+                  <svg
+                    className="w-5 h-5 text-white/80"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                className={`overflow-hidden text-white text-sm leading-relaxed bg-zinc-900/80 backdrop-blur-lg transition-all duration-500 px-6 ${
+                  openIndex === idx
+                    ? "max-h-60 py-4 opacity-100 rounded-b-2xl"
+                    : "max-h-0 py-0 opacity-0"
+                }`}
+              >
+                {project.description}
+              </div>
+            </div>
           ))}
         </div>
       </div>

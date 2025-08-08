@@ -31,10 +31,10 @@ export default function HeroSection() {
         </div>
 
         {/* Main Title */}
-        <div className="flex-1 flex items-center justify-center min-h-0 mb-10">
+        <div className="flex-1 flex items-center justify-center min-h-0 max-h-fit ">
           <div className="text-center w-full flex justify-center items-center">
             <h1
-              className={`font-black leading-none text-red-500 transform transition-all duration-1200 ease-out whitespace-nowrap ${
+              className={`font-black leading-relaxed text-red-500 transform transition-all duration-1200 ease-out whitespace-nowrap ${
                 isLoaded
                   ? "translate-y-0 opacity-100"
                   : "translate-y-16 opacity-0"
@@ -44,7 +44,7 @@ export default function HeroSection() {
                 fontFamily: "system-ui, -apple-system, sans-serif",
                 letterSpacing: "-0.08em",
                 fontSize: "clamp(5rem, 22vw, 28rem)", // Adjusted minimum for mobile
-                lineHeight: "1",
+                lineHeight: "auto",
               }}
             >
               SHIVANK

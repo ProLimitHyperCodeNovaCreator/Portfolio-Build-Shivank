@@ -173,7 +173,7 @@ export default function Component() {
 
       <div className="max-w-7xl mx-auto">
         {/* Top navigation links */}
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium text-center">
+        <div className="flex flex-row justify-around items-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 text-sm sm:text-base font-medium text-center">
           <Link
             href="https://github.com/avianbob"
             className="hover:text-gray-300 transition-colors z-10"
@@ -215,7 +215,7 @@ export default function Component() {
         {/* Bottom nav + copyright */}
         <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium gap-4 text-center sm:text-left">
           <div className="hover:text-gray-300 transition-colors z-10">
-            MADE WITH ❤ BY{" "}
+            Digital craftsmanship by{" "}
             <Link
               href="https://www.linkedin.com/in/adityaag2005"
               target="_blank"
