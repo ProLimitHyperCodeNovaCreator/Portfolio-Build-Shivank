@@ -346,29 +346,6 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * window.innerWidth,
-              y: window.innerHeight + 100,
-              opacity: 0 
-            }}
-            animate={{
-              y: -100,
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 7,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "linear"
-            }}
-            className="absolute w-2 h-2 bg-gradient-to-br from-red-500 to-purple-500/20 rounded-full"
-          />
-        ))}
-      </div>
     </section>
   );
 };

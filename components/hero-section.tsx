@@ -24,7 +24,7 @@ export default function HeroSection() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-[0.3em] text-white/90">
+            <h2 className="text-base sm:text-lg md:text-2xl font-light tracking-[0.3em] text-white/90">
               HELLO, I&apos;M
             </h2>
           </div>
@@ -60,7 +60,7 @@ export default function HeroSection() {
             }`}
             style={{ transitionDelay: "1000ms" }}
           >
-            <span className="text-sm sm:text-base md:text-xl font-light tracking-[0.2em] text-white/90">
+            <span className="text-sm sm:text-base md:text-2xl font-light tracking-[0.2em] text-white/90">
               ROBOTICS & SIMULATION ENGINEER
             </span>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 
 const UltraElegantMenu: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -25,6 +25,10 @@ const UltraElegantMenu: React.FC = () => {
       onClick: openResume,
     },
     {
+      label: "About",
+      onClick: () => scrollToSection("about"),
+    },
+    {
       label: "Contact",
       onClick: () => scrollToSection("footer"),
     },
@@ -39,10 +43,6 @@ const UltraElegantMenu: React.FC = () => {
     {
       label: "Projects",
       onClick: () => scrollToSection("projects"),
-    },
-    {
-      label: "About",
-      onClick: () => scrollToSection("about"),
     },
   ];
 
@@ -84,7 +84,6 @@ const UltraElegantMenu: React.FC = () => {
               }`}
             >
               <div className="flex items-center whitespace-nowrap">
-                <Sparkles size={14} className="mr-1 text-red-300" />
                 <span className="text-sm font-medium text-white">
                   Portfolio
                 </span>

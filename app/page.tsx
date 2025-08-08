@@ -57,7 +57,7 @@ export default function Page() {
           <section id="skills" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
             <Skills />
           </section>
-          <section id="footer" className="relative min-h-fit w-screen bg-black flex flex-col items-center justify-center">
+          <section id="footer" className="relative max-h-[70vh] w-screen bg-black flex flex-col items-center justify-center">
             <Footer/>
           </section>
         </div>

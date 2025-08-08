@@ -57,7 +57,7 @@ export default function Component() {
               start: "top bottom",
               end: "bottom top",
             },
-            y: "-80vh",
+            y: "-60vh",
             x: "40vw",
             scale: 1.5,
             opacity: 0.5,
@@ -78,7 +78,7 @@ export default function Component() {
               end: "bottom top",
             },
             y: "40vh",
-            x: "-80vw",
+            x: "-110vw",
             scale: 0.8,
             opacity: 0.6,
             ease: "power1.out",
@@ -145,7 +145,7 @@ export default function Component() {
   }, []);
 
   return (
-    <footer className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 relative">
+    <footer className="bg-black h-screen text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden w-full">
       {/* Responsive Dots */}
       {/* Dot 1 */}
       <div
@@ -210,23 +210,6 @@ export default function Component() {
           >
             BUILD ON
           </h1>
-        </div>
-
-        {/* Bottom nav + copyright */}
-        <div className="flex flex-col md:flex-row justify-between text-sm sm:text-base font-medium gap-4 text-center sm:text-left">
-          <div className="hover:text-gray-300 transition-colors z-10">
-            Digital craftsmanship by{" "}
-            <Link
-              href="https://www.linkedin.com/in/adityaag2005"
-              target="_blank"
-              className="underline cursor-pointer"
-            >
-              ADITYA AGARWAL
-            </Link>
-          </div>
-          <div className="hover:text-gray-300 transition-colors z-10">
-            © All Rights Reserved
-          </div>
         </div>
       </div>
     </footer>
