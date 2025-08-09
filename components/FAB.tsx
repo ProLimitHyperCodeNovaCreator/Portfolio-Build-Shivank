@@ -16,7 +16,7 @@ const UltraElegantMenu: React.FC = () => {
   };
 
   const openResume = () => {
-    window.open("/pdfs/resume_aditya.pdf", "_blank");
+    window.open("/pdfs/ShivankGoyal_Resume.pdf", "_blank");
   };
 
   const menuButtons = [
