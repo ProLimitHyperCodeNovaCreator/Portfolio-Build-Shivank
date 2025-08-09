@@ -145,7 +145,7 @@ export default function Component() {
   }, []);
 
   return (
-    <footer className="bg-black h-screen text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden w-full">
+    <footer className="bg-black lg:h-screen text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden w-full">
       {/* Responsive Dots */}
       {/* Dot 1 */}
       <div

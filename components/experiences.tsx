@@ -143,7 +143,7 @@ function Page() {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="group text-right px-4 sm:px-6 py-5 cursor-pointer transition-all duration-300 hover:bg-red-500"
+              className="group text-right py-5 cursor-pointer transition-all duration-300 hover:bg-red-500"
               onMouseEnter={() => {
                 setImageHover(project.image);
                 setHoveredIndex(idx);
@@ -178,7 +178,7 @@ function Page() {
               {/* Mobile: Static Title + Description */}
               <div
                 onClick={() => handleToggle(idx)}
-                className={`w-full flex items-center justify-between px-6 text-white font-light text-2xl transition-all duration-300 md:hidden ${openIndex === idx ? "bg-red-500 py-6" : "bg-transparent"}`}
+                className={`w-full flex items-center justify-between px-2 text-white font-light text-2xl transition-all duration-300 lg:hidden ${openIndex === idx ? "bg-red-500 py-6" : "bg-transparent"}`}
               >
                 <span className="tracking-wide">{project.name}</span>
                 <span
@@ -203,7 +203,7 @@ function Page() {
               </div>
 
               <div
-                className={`overflow-hidden text-white text-sm leading-relaxed transition-all duration-500 px-6 ${
+                className={`overflow-hidden text-white text-sm leading-relaxed transition-all duration-500 px-2 ${
                   openIndex === idx
                     ? "max-h-60 py-4 opacity-100"
                     : "max-h-0 py-0 opacity-0"

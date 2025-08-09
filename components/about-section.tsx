@@ -196,49 +196,47 @@ function About() {
         ></div>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
+      <div
+        ref={containerRef}
+        className="min-h-screen w-screen flex flex-col lg:flex-row justify-around items-center px-8 py-10"
+      >
+        {/* Image Section */}
         <div
-          ref={containerRef}
-          className="min-h-screen w-screen flex flex-col lg:flex-row justify-around items-center px-8 py-10"
+          ref={imageWrapperRef}
+          className="relative h-[70vh] md:h-[80vh] w-[80vw] lg:w-[40vw] lg:h-[120vh] shadow-lg overflow-hidden"
         >
-          {/* Image Section */}
-          <div
-            ref={imageWrapperRef}
-            className="relative h-[70vh] md:h-[80vh] w-[80vw] md:w-[80vw] lg:w-[40vw] lg:h-[120vh] shadow-lg overflow-hidden"
-          >
-            <div className="absolute inset-0 h-[120%] w-full">
-              <div ref={imageRef} className="absolute inset-0 h-[120%] w-full">
-                <LazyBlurImage
-                  className="h-full w-full object-cover"
-                  rounded={false}
-                  src={sectionData.image}
-                  alt={sectionData.title}
-                />
-              </div>
-              <div
-                ref={overlayRef}
-                className="absolute h-full inset-0 bg-black z-10"
-              ></div>
+          <div className="absolute inset-0 h-[120%] w-full">
+            <div ref={imageRef} className="absolute inset-0 h-[120%] w-full">
+              <LazyBlurImage
+                className="h-full w-full object-cover"
+                rounded={false}
+                src={sectionData.image}
+                alt={sectionData.title}
+              />
             </div>
+            <div
+              ref={overlayRef}
+              className="absolute h-full inset-0 bg-black z-10"
+            ></div>
           </div>
+        </div>
 
-          {/* Content Section */}
-          <div className="text-[#FFFFFF] flex flex-col justify-center items-center lg:items-start w-[80vw] md:max-w-[60vw] lg:max-w-[45vw] gap-8 py-10 lg:py-0 lg:px-10">
-            <div className="rounded-full bg-red-500 w-[250px] h-[250px] flex items-center justify-center text-center">
-              <h1
-                ref={headingRef}
-                className="text-white text-2xl sm:text-3xl md:text-5xl font-light leading-tight tracking-wide px-4"
-              >
-                {sectionData.title}
-              </h1>
-            </div>
-            <p
-              ref={paragraphRef}
-              className="text-base text-[#FFFFFF] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.5rem] text-center lg:text-left tracking-wide leading-relaxed sm:leading-[1.5rem] md:leading-[2rem] lg:leading-[1.7rem] font-light"
+        {/* Content Section */}
+        <div className="text-[#FFFFFF] flex flex-col justify-center items-center lg:items-start w-[80vw] md:max-w-[60vw] lg:max-w-[45vw] gap-8 py-10 lg:py-0 lg:px-10">
+          <div className="rounded-full bg-red-500 w-[250px] h-[250px] flex items-center justify-center text-center">
+            <h1
+              ref={headingRef}
+              className="text-white text-2xl sm:text-3xl md:text-5xl font-light leading-tight tracking-wide px-4"
             >
-              {sectionData.content}
-            </p>
+              {sectionData.title}
+            </h1>
           </div>
+          <p
+            ref={paragraphRef}
+            className="text-base text-[#FFFFFF] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.5rem] text-center lg:text-left tracking-wide leading-relaxed sm:leading-[1.5rem] md:leading-[2rem] lg:leading-[1.7rem] font-light"
+          >
+            {sectionData.content}
+          </p>
         </div>
       </div>
       <div className="my-15 flex justify-center">

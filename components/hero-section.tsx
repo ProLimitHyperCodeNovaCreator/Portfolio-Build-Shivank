@@ -15,7 +15,7 @@ export default function HeroSection() {
 
   return (
     <div className="min-h-screen bg-black text-white ">
-      <div className="container mx-auto px-4 sm:px-6 py-12 h-screen flex flex-col justify-center">
+      <div className="container mx-auto px-4 py-12 h-screen flex flex-col justify-center">
         {/* Top Section */}
         <div className="flex justify-center pt-8">
           <div

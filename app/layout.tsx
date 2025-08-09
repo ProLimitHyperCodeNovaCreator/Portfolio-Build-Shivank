@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Portfolio - Shivank Goyal",
-  description: "I’m Shivank, a B.Tech Chemical Engineering student at IIT Patna with a deep focus on robotics and simulations. My portfolio showcases projects in PX4, ROS, GNSS-denied navigation, and fault-tolerant drone systems — bridging the gap between simulation and real-world autonomy.",
+  description: "I’m Shivank Goyal, a B.Tech student at IIT Patna with a deep focus on robotics and simulations. My portfolio showcases projects in PX4, ROS, GNSS-denied navigation, and fault-tolerant drone systems — bridging the gap between simulation and real-world autonomy.",
 };
 
 export default function RootLayout({

@@ -67,7 +67,7 @@ export default function SwipeSection() {
 
           {/* Panel 2 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12 p-4 overflow-y-auto max-h-[100vh]">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
               {/* Image */}
               <div className="w-full md:w-[80%] flex justify-center">
                 <Image
@@ -99,7 +99,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
+                  <button className="px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
                     View on GitHub
                   </button>
                 </a>
@@ -109,7 +109,7 @@ export default function SwipeSection() {
 
           {/* Panel 3 */}
           <section className="panel flex-shrink-0 flex items-center justify-center w-screen h-screen bg-black text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12 p-4 overflow-y-auto max-h-[100vh]">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
               <div className="w-full md:w-[80%] flex justify-center">
                 <Image
                   src="/Pimg1.jpeg"
@@ -139,7 +139,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block "
                 >
-                  <button className="mt-4 px-6 py-2 bg-black text-red-500 font-semibold rounded-lg shadow-md hover:bg-red-500 transition duration-300 border border-red-500 hover:text-white cursor-pointer">
+                  <button className="px-6 py-2 bg-black text-red-500 font-semibold rounded-lg shadow-md hover:bg-red-500 transition duration-300 border border-red-500 hover:text-white cursor-pointer">
                     View on GitHub
                   </button>
                 </a>
@@ -149,7 +149,7 @@ export default function SwipeSection() {
 
           {/* Panel 4 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[90vw] gap-12 p-4 overflow-y-auto max-h-[100vh]">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
               <div className="w-full md:w-[80%] flex justify-center ">
                 <Image
                   src="/Pimg3.jpeg"
@@ -179,7 +179,7 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="mt-4 px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
+                  <button className="px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
                     View on GitHub
                   </button>
                 </a>
