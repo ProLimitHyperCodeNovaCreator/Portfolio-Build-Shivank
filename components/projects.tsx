@@ -67,7 +67,7 @@ export default function SwipeSection() {
 
           {/* Panel 2 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 lg:gap-12 p-4 overflow-y-auto">
               {/* Image */}
               <div className="w-full md:w-[80%] flex justify-center">
                 <Image
@@ -109,7 +109,7 @@ export default function SwipeSection() {
 
           {/* Panel 3 */}
           <section className="panel flex-shrink-0 flex items-center justify-center w-screen h-screen bg-black text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 lg:gap-12 p-4 overflow-y-auto">
               <div className="w-full md:w-[80%] flex justify-center">
                 <Image
                   src="/Pimg1.jpeg"
@@ -149,7 +149,7 @@ export default function SwipeSection() {
 
           {/* Panel 4 */}
           <section className="panel light flex-shrink-0 flex items-center justify-center w-screen h-screen bg-red-500 text-gray-800">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-12 p-4 overflow-y-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 lg:gap-12 p-4 overflow-y-auto">
               <div className="w-full md:w-[80%] flex justify-center ">
                 <Image
                   src="/Pimg3.jpeg"
