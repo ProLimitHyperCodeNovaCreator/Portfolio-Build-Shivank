@@ -47,7 +47,7 @@ export default function HeroSection() {
                 lineHeight: "auto",
               }}
             >
-              SHIVANK
+              LENDI
             </h1>
           </div>
         </div>
