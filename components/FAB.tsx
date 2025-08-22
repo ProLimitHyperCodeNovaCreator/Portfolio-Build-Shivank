@@ -16,33 +16,33 @@ const UltraElegantMenu: React.FC = () => {
   };
 
   const openResume = () => {
-    /*window.open("/pdfs/ShivankGoyal_Resume.pdf", "_blank");*/
+    window.open("/pdfs/ShivankGoyal_Resume.pdf", "_blank");
   };
 
   const menuButtons = [
-    {
-      label: "Resumé",
-      onClick: openResume,
-    },
     {
       label: "About",
       onClick: () => scrollToSection("about"),
     },
     {
-      label: "Contact",
-      onClick: () => scrollToSection("footer"),
-    },
-    {
-      label: "Skills",
-      onClick: () => scrollToSection("skills"),
+      label: "Projects",
+      onClick: () => scrollToSection("projects"),
     },
     {
       label: "Experience",
       onClick: () => scrollToSection("experience"),
     },
     {
-      label: "Projects",
-      onClick: () => scrollToSection("projects"),
+      label: "Skills",
+      onClick: () => scrollToSection("skills"),
+    },
+    {
+      label: "Contact",
+      onClick: () => scrollToSection("footer"),
+    },
+    {
+      label: "Resumé",
+      onClick: openResume,
     },
   ];
 

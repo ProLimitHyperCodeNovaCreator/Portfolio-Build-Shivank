@@ -24,7 +24,8 @@ const skillLogos = {
   "UART": "/shivank_icons/uart.png",
   "CAN Bus": "/shivank_icons/can.png",
   "Micro XRCE-DDS": "/shivank_icons/micro-xrce.png",
-  "Visual-Inertial Odometry": "/shivank_icons/vio.png"
+  "Visual-Inertial Odometry": "/shivank_icons/vio.png",
+  "Matlab": "/shivank_icons/matlab.svg"
 };
 
 const skillsData = [
@@ -40,6 +41,7 @@ const skillsData = [
       "QGroundControl",
       "MAVLink",
       "Qt Creator",
+      "Matlab"
     ],
   },
   {
