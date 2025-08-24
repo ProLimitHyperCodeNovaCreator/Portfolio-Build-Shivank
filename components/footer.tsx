@@ -199,7 +199,7 @@ export default function Component() {
           ref={containerRef}
           className="text-center mb-8 sm:mb-12 md:mb-16 px-2"
         >
-          <h1
+          <h2
             ref={bigHeadingRef}
             className="z-10 font-black tracking-tighter leading-none"
             style={{
@@ -209,7 +209,7 @@ export default function Component() {
             }}
           >
             BUILD ON
-          </h1>
+          </h2>
         </div>
       </div>
     </footer>

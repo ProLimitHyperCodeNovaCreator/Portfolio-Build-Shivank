@@ -58,9 +58,9 @@ export default function SwipeSection() {
           {/* Panel 1: Description */}
           <div className="description panel flex-shrink-0 flex flex-col items-center justify-center w-screen h-screen bg-black text-white p-8 text-center">
             <div className="text-center px-4">
-              <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] font-light tracking-wide leading-tight">
+              <h2 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] font-light tracking-wide leading-tight">
                 PROJECTS
-              </h1>
+              </h2>
               <div className="w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] h-[0.2rem] bg-red-500 my-6 mx-auto"></div>
             </div>
           </div>

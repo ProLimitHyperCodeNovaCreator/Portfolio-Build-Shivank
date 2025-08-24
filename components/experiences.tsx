@@ -99,9 +99,9 @@ function Page() {
       {/* Header */}
       <div className="flex flex-col justify-center items-center z-10 px-4 text-center">
         <div className="relative flex flex-col justify-center items-center overflow-hidden">
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] tracking-wide font-light">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] tracking-wide font-light">
             EXPERIENCES
-          </h1>
+          </h2>
           <div
             ref={projectHeadingRef}
             className="w-full h-full bg-[#ff0000] absolute top-0 z-[20]"

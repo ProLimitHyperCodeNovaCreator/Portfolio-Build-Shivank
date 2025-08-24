@@ -179,12 +179,12 @@ function About() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen justify-around items-center py-10">
+    <section id="about" aria-label="About Shivank Goyal" className="flex flex-col min-h-screen justify-around items-center py-10">
       <div className="flex flex-col justify-center items-center text-center px-4 sm:px-6">
         <div className="relative flex flex-col justify-center items-center overflow-hidden">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide font-light leading-tight">
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide font-light leading-tight">
             FROM MECHANISMS TO MACHINERY
-          </h1>
+          </h2>
           <div
             ref={aboutHeadingRef}
             className="absolute top-0 left-0 w-full h-full bg-red-500 z-[-1]"
@@ -224,12 +224,12 @@ function About() {
         {/* Content Section */}
         <div className="text-[#FFFFFF] flex flex-col justify-center items-center lg:items-start w-[80vw] md:max-w-[60vw] lg:max-w-[45vw] gap-8 py-10 lg:py-0 lg:px-10">
           <div className="rounded-full bg-red-500 w-[250px] h-[250px] flex items-center justify-center text-center">
-            <h1
+            <h2
               ref={headingRef}
               className="text-white text-2xl sm:text-3xl md:text-5xl font-light leading-tight tracking-wide px-4"
             >
               {sectionData.title}
-            </h1>
+            </h2>
           </div>
           <p
             ref={paragraphRef}
@@ -242,7 +242,7 @@ function About() {
       <div className="my-15 flex justify-center">
         <div className="w-[90vw] h-[0.1rem] bg-[#fff]"></div>
       </div>
-    </div>
+    </section>
   );
 }
 
