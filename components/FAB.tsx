@@ -67,6 +67,7 @@ const UltraElegantMenu: React.FC = () => {
 
           {/* Button now covers the entire top area */}
           <button
+            aria-label="Toggle Menu"
             onClick={() => setIsExpanded(!isExpanded)}
             className="relative flex items-center justify-center w-full h-16 text-white font-medium text-base z-10 transition-all duration-300 hover:bg-white/5"
           >
