@@ -34,12 +34,12 @@ export default function Page() {
       </AnimatePresence>
 
       {!isLoading && (
-        <div className="selection:bg-red-500 selection:text-white scroll-smooth">
+        <div className="scroll-smooth">
           <FAB />
-          <section className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
+          <section className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center selection:bg-red-400 selection:text-gray-700">
             <HeroSection />
           </section>
-          <section id="about" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
+          <section id="about" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center select-none">
             <About/>
           </section>
           <section id="projects" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
@@ -51,13 +51,13 @@ export default function Page() {
               <h2>Scroll down to see the footer!</h2>
             </div>
           </section>
-          <section id="experience" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
+          <section id="experience" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center selection:bg-red-400 selection:text-gray-700">
             <Experience />
           </section>
-          <section id="skills" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center">
+          <section id="skills" className="relative min-h-screen w-screen bg-black flex flex-col items-center justify-center selection:bg-red-400 selection:text-gray-700">
             <Skills />
           </section>
-          <section id="footer" className="relative lg:max-h-[60vh] w-screen bg-black flex flex-col items-center justify-center">
+          <section id="footer" className="relative lg:max-h-[60vh] w-screen bg-black flex flex-col items-center justify-center selection:bg-red-400 selection:text-gray-700">
             <Footer/>
           </section>
         </div>

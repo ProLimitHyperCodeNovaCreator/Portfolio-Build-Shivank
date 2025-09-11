@@ -9,10 +9,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SwipeSection() {
   const containerRef = useRef<HTMLDivElement>(null); // Ref for the swipe-section container
+  const projectHeadingRef = useRef(null);
+  const lineRef = useRef(null);
+  const mainPanelRef = useRef(null);
 
   useEffect(() => {
+    if (
+      !containerRef.current ||
+      !lineRef.current ||
+      !projectHeadingRef.current ||
+      !mainPanelRef.current
+    )
+      return;
+
+    gsap.set(lineRef.current, { width: 0 });
+    gsap.set(mainPanelRef.current, { x: 0 });
     const container = containerRef.current;
-    if (!container) return;
 
     const panelsContainer = container.querySelector(".panels-container");
     if (!panelsContainer) return;
@@ -42,7 +54,35 @@ export default function SwipeSection() {
       // onUpdate: self => console.log("progress:", self.progress.toFixed(3), "direction:", self.direction)
     });
 
+    const runAnimations = () => {
+      gsap.to(projectHeadingRef.current, {
+        x: "110%",
+        ease: "power3.inOut",
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: mainPanelRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.to(lineRef.current, {
+        width: "40vw",
+        ease: "power3.inOut",
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: mainPanelRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+        delay: 0.2,
+      });
+
+      ScrollTrigger.refresh();
+    };
+
     // Cleanup function to kill ScrollTrigger instances on component unmount
+    requestAnimationFrame(runAnimations);
     return () => {
       mainScrollTrigger.kill();
     };
@@ -56,12 +96,24 @@ export default function SwipeSection() {
       >
         <div className="panels-container flex h-full">
           {/* Panel 1: Description */}
-          <div className="description panel flex-shrink-0 flex flex-col items-center justify-center w-screen h-screen bg-black text-white p-8 text-center">
-            <div className="text-center px-4">
-              <h2 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] font-light tracking-wide leading-tight">
-                PROJECTS
-              </h2>
-              <div className="w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] h-[0.2rem] bg-red-500 my-6 mx-auto"></div>
+          <div
+            ref={mainPanelRef}
+            className="description panel flex-shrink-0 flex flex-col items-center justify-center w-screen h-screen bg-black text-white p-8 text-center"
+          >
+            <div className="text-center px-4 selection:bg-red-400 selection:text-gray-700">
+              <div className="relative flex flex-col justify-center items-center overflow-hidden">
+                <h2 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] font-light tracking-wide leading-tight">
+                  PROJECTS
+                </h2>
+                <div
+                  ref={projectHeadingRef}
+                  className="w-full h-full bg-[#ff0000] absolute top-0 z-[20]"
+                ></div>
+              </div>
+              <div
+                ref={lineRef}
+                className="w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] h-[0.2rem] bg-red-500 my-6 mx-auto"
+              ></div>
             </div>
           </div>
 
@@ -80,11 +132,11 @@ export default function SwipeSection() {
               </div>
 
               {/* Text */}
-              <div className="w-full md:w-[50%] space-y-6 text-white">
+              <div className="w-full md:w-[50%] space-y-6 text-white selection:bg-gray-800 selection:text-red-400">
                 <h2 className="text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-bold tracking-wide leading-tight">
                   GNSS Denied RTAB-Map Based Navigation
                 </h2>
-                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                <p className="text-base md:text-xl leading-normal tracking-normal mt-4 font-normal">
                   Performed real time mapping and autonomous navigation using
                   RTAB-Map in a GPS denied environment with a PX4 based drone in
                   Gazebo simulation. Integrated a depth camera with correct TF
@@ -99,8 +151,13 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
-                    View on GitHub
+                  <button className="group px-6 w-fit py-2 border border-white text-white font-semibold rounded-lg relative overflow-hidden flex items-center justify-center gap-4 transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:cursor-pointer">
+                    <span className="transform transition-transform duration-300 ease-in-out group-hover:-translate-x-2">
+                      View on GitHub
+                    </span>
+                    <span className="absolute right-4 opacity-0 group-hover:opacity-100 transform translate-x-6 group-hover:translate-x-1 transition-all duration-300 ease-in-out">
+                      →
+                    </span>
                   </button>
                 </a>
               </div>
@@ -119,11 +176,11 @@ export default function SwipeSection() {
                   className="rounded-xl shadow-xl w-full md:w-[90vw] h-auto md:h-[70vh] object-cover max-h-[50vh] md:max-h-[70vh]"
                 />
               </div>
-              <div className="w-full md:w-[50%] space-y-6 text-white">
+              <div className="w-full md:w-[50%] space-y-6 text-white selection:bg-red-400 selection:text-gray-700">
                 <h2 className="text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-bold tracking-wide leading-tight">
                   Autonomous Drone Navigation (IRoC-U 2025)
                 </h2>
-                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                <p className="text-base md:text-xl leading-normal tracking-normal mt-4 font-normal">
                   Contributed to the ISRO Robotics Challenge 2025 by
                   implementing autonomous drone navigation and mapping in
                   simulation and hardware. Achieved vertical navigation without
@@ -139,8 +196,13 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block "
                 >
-                  <button className="px-6 py-2 bg-black text-red-500 font-semibold rounded-lg shadow-md hover:bg-red-500 transition duration-300 border border-red-500 hover:text-white cursor-pointer">
-                    View on GitHub
+                  <button className="group px-6 w-fit py-2 border border-red-500 text-red-500 font-semibold rounded-lg relative overflow-hidden flex items-center justify-center gap-4 transition-all duration-300 ease-in-out hover:bg-red-500 hover:text-white hover:cursor-pointer">
+                    <span className="transform transition-transform duration-300 ease-in-out group-hover:-translate-x-2">
+                      View on GitHub
+                    </span>
+                    <span className="absolute right-4 opacity-0 group-hover:opacity-100 transform translate-x-6 group-hover:translate-x-1 transition-all duration-300 ease-in-out">
+                      →
+                    </span>
                   </button>
                 </a>
               </div>
@@ -159,11 +221,11 @@ export default function SwipeSection() {
                   className="rounded-xl shadow-xl w-full md:w-[90vw] h-auto md:h-[70vh] object-cover max-h-[50vh] md:max-h-[70vh]"
                 />
               </div>
-              <div className="w-full md:w-[50%] space-y-6 text-white">
+              <div className="w-full md:w-[50%] space-y-6 text-white selection:bg-gray-800 selection:text-red-400">
                 <h2 className="text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-bold tracking-wide leading-tight">
                   Fault Tolerant Control for Motor Failure in Drones
                 </h2>
-                <p className="text-base md:text-lg leading-normal tracking-wider mt-4">
+                <p className="text-base md:text-xl leading-normal tracking-normal mt-4 font-normal">
                   Developed a robust fault tolerant control system for
                   quadcopters under single motor failure using PX4. Injected
                   motor failures in discrete, linear, and sinusoidal patterns
@@ -179,8 +241,13 @@ export default function SwipeSection() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-300 cursor-pointer">
-                    View on GitHub
+                  <button className="group px-6 py-2 w-fit border border-white text-white font-semibold rounded-lg relative overflow-hidden flex items-center justify-center gap-3 transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:cursor-pointer">
+                    <span className="transform transition-transform duration-300 ease-in-out group-hover:-translate-x-2">
+                      View on GitHub
+                    </span>
+                    <span className="absolute right-4 opacity-0 group-hover:opacity-100 transform translate-x-6 group-hover:translate-x-1 transition-all duration-300 ease-in-out">
+                      →
+                    </span>
                   </button>
                 </a>
               </div>
