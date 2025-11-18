@@ -123,7 +123,39 @@
   }
 }
 
-.html,
+html,
 body {
   overflow-x: hidden;
 }
+
+@layer utilities {
+  /* Chrome, Safari, Edge, Opera */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-red-500 rounded-full;
+    border: 2px solid black; /* Creates a nice padding effect */
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-red-600; /* Darker red on hover */
+  }
+
+  /* Firefox (Standard CSS) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ef4444 black; /* hex for red-500 & black */
+  }
+}
+
+
