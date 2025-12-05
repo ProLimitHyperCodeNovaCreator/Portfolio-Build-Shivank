@@ -87,7 +87,7 @@ export default function SwipeSection() {
       mainScrollTrigger.kill();
     };
   }, []);
-
+  // End of useEffect
   return (
     <>
       <div
