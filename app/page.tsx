@@ -24,8 +24,10 @@ export default function Page() {
       setIsLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timer);
-  }, [isLoading]);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
